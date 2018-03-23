@@ -15,6 +15,6 @@ export default {
 
     let post = await import('~/content/blog/posts/' + params.slug + '.json');
     return post;
-  }
+  },
 };
 </script>

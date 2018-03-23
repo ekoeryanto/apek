@@ -2,7 +2,9 @@
   <section class="container">
     <h2>Blog</h2>
     <ul>
-      <li v-for="post in posts" :key="post.date">
+      <li 
+        v-for="post in posts" 
+        :key="post.date">
         <nuxt-link :to="post._path">
           {{ post.title }}
         </nuxt-link>
@@ -16,7 +18,7 @@ import AppLogo from '~/components/AppLogo.vue';
 
 export default {
   components: {
-    AppLogo
+    AppLogo,
   },
   data() {
     // Using webpacks context to gather all files from a folder
@@ -24,11 +26,11 @@ export default {
 
     const posts = context.keys().map(key => ({
       ...context(key),
-      _path: `/blog/${key.replace('.json', '').replace('./', '')}`
+      _path: `/blog/${key.replace('.json', '').replace('./', '')}`,
     }));
 
     return { posts };
-  }
+  },
 };
 </script>
 
