@@ -1,5 +1,6 @@
 var glob = require('glob');
 var path = require('path');
+const nodeExternals = require('webpack-node-externals')
 
 // Enhance Nuxt's generate process by gathering all content files from Netifly CMS
 // automatically and match it to the path of your Nuxt routes.
@@ -29,6 +30,20 @@ module.exports = {
   */
   loading: { color: '#3B8070' },
   /*
+  ** Global CSS
+  */
+ css: [
+   './node_modules/typeface-roboto/index.css',
+   './node_modules/mdi/css/materialdesignicons.css',
+    '@/assets/app.styl'
+  ],
+  /*
+  ** Plugins to load before mounting the App
+  */
+  plugins: [
+    '@/plugins/vuetify'
+  ],
+  /*
   ** Route config for pre-rendering
   */
   generate: {
@@ -38,10 +53,20 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    babel: {
+      plugins: [
+        ["transform-imports", {
+          "vuetify": {
+            "transform": "vuetify/es5/components/${member}",
+            "preventFullImport": true
+          }
+        }]
+      ]
+    },
     /*
     ** Run ESLint on save
     */
-    extend(config, { isDev, isClient }) {
+    extend(config, { isDev, isClient, isServer }) {
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -49,6 +74,13 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
+      }
+      if (isServer) {
+        config.externals = [
+          nodeExternals({
+            whitelist: [/^vuetify/]
+          })
+        ]
       }
     }
   }
