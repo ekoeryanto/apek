@@ -33,12 +33,8 @@ collections:
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     format: 'json'
     fields:
-      - label: "Class"
-        name: "class"
-        widget: "select"
-        options: ["PT", "CV"]
-      - label: "Name"
-        name: "name"
+      - label: "Title"
+        name: "title"
         widget: "string"
       - label: "Registered Date"
         name: "registered"
