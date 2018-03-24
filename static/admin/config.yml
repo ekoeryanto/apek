@@ -24,3 +24,29 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
+
+  - name: "member"
+    label: "Members"
+    singular_label: "Member"
+    folder: "content/member" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    format: 'json'
+    fields:
+      - label: "Class"
+        name: "class"
+        widget: "select"
+        options: ["PT", "CV"]
+      - label: "Name"
+        name: "name"
+        widget: "string"
+      - label: "Registered Date"
+        name: "registered"
+        widget: "date"
+      - label: "Featured Image"
+        name: "thumbnail"
+        widget: "image"
+        required: false
+      - label: "Body"
+        name: "body"
+        widget: "markdown"

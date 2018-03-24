@@ -1,9 +1,10 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-navigation-drawer
       :mini-variant.sync="miniVariant"
       :clipped="clipped"
       v-model="drawer"
+      right
       fixed
       app
     >
@@ -28,9 +29,12 @@
       :clipped-left="clipped"
       fixed
       app>
-      <v-toolbar-side-icon @click="drawer = !drawer">
-        <v-icon>mdi-menu</v-icon>
-      </v-toolbar-side-icon>
+      <v-toolbar-title>
+        <img
+          src="/logo128x.png"
+          alt="APEK">
+      </v-toolbar-title>
+      <v-spacer />
       <v-btn
         icon
         @click.stop="miniVariant = !miniVariant"
@@ -49,35 +53,16 @@
       >
         <v-icon>mdi-division</v-icon>
       </v-btn>
-      <v-toolbar-title v-text="title"/>
-      <v-spacer/>
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
+
+      <v-toolbar-side-icon @click="drawer = !drawer">
         <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      </v-toolbar-side-icon>
     </v-toolbar>
     <v-content>
       <v-container>
         <nuxt />
       </v-container>
     </v-content>
-    <v-navigation-drawer
-      :right="right"
-      v-model="rightDrawer"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-tile @click.native="right = !right">
-          <v-list-tile-action>
-            <v-icon light>mdi-compare</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
     <v-footer
       :fixed="fixed"
       app>
@@ -96,6 +81,7 @@ export default {
       items: [
         { icon: 'mdi-apps', title: 'Welcome', to: '/' },
         { icon: 'mdi-chart-bubble', title: 'Inspire', to: '/inspire' },
+        { icon: 'mdi-nature-people', title: 'Members', to: '/members' },
       ],
       miniVariant: false,
       right: true,

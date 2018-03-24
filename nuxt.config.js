@@ -6,7 +6,8 @@ const nodeExternals = require('webpack-node-externals')
 // automatically and match it to the path of your Nuxt routes.
 // The Nuxt routes are generate by Nuxt automatically based on the pages folder.
 var dynamicRoutes = getDynamicPaths({
-  '/blog': 'blog/posts/*.json'
+  '/blog': 'blog/posts/*.json',
+  '/member': 'member/*.json'
 });
 
 
@@ -25,30 +26,38 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+
   /*
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
+
   /*
   ** Global CSS
   */
- css: [
-   './node_modules/typeface-roboto/index.css',
-   './node_modules/mdi/css/materialdesignicons.css',
+  css: [
+    './node_modules/typeface-roboto/index.css',
+    './node_modules/mdi/css/materialdesignicons.css',
     '@/assets/app.styl'
   ],
+
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
     '@/plugins/vuetify'
   ],
+
   /*
   ** Nuxt.js modules
   */
   modules: [
     '@nuxtjs/markdownit'
   ],
+
+  /*
+  ** modules configuration
+  */
   markdownit: {
     preset: 'default',
     linkify: true,
@@ -59,12 +68,14 @@ module.exports = {
       'markdown-it-attrs'
     ]
   },
+
   /*
   ** Route config for pre-rendering
   */
   generate: {
     routes: dynamicRoutes
   },
+
   /*
   ** Build configuration
   */
@@ -79,6 +90,7 @@ module.exports = {
         }]
       ]
     },
+
     /*
     ** Run ESLint on save
     */
