@@ -1,41 +1,126 @@
 <template>
   <v-app>
     <v-navigation-drawer
+      v-if="$vuetify.breakpoint.smAndDown"
       :mini-variant.sync="miniVariant"
       :clipped="clipped"
       v-model="drawer"
       right
+      temporary
       fixed
-      app
-    >
+      app>
       <v-list>
-        <v-list-tile
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-tile-action>
-            <v-icon v-html="item.icon"/>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"/>
-          </v-list-tile-content>
-        </v-list-tile>
+        <template v-for="item in items">
+          <!-- <v-layout
+            v-if="item.heading"
+            :key="item.heading"
+            row
+            align-center
+          >
+            <v-flex xs6>
+              <v-subheader v-if="item.heading">
+                {{ item.heading }}
+              </v-subheader>
+            </v-flex>
+            <v-flex
+              xs6
+              class="text-xs-center">
+              <a
+                href="#!"
+                class="body-2 black--text">EDIT</a>
+            </v-flex>
+          </v-layout> -->
+          <v-list-group
+            v-if="item.children"
+            v-model="item.model"
+            :key="item.text"
+            :prepend-icon="item.model ? item['icon-alt'] : item['icon']"
+            append-icon=""
+          >
+            <v-list-tile slot="activator">
+              <v-list-tile-content>
+                <v-list-tile-title>
+                  {{ item.text }}
+                </v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+            <v-list-tile
+              v-for="(child, i) in item.children"
+              :key="i"
+              :to="child.to || '/inspire'"
+              class="ml-3"
+            >
+              <v-list-tile-action v-if="child.icon">
+                <v-icon>{{ child.icon }}</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>
+                <v-list-tile-title>
+                  {{ child.text }}
+                </v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list-group>
+          <v-list-tile
+            v-else
+            :key="item.text"
+            :to="item.to || '/'">
+            <v-list-tile-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>
+                {{ item.text }}
+              </v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </template>
+
       </v-list>
     </v-navigation-drawer>
+
     <v-toolbar
       :clipped-left="clipped"
       fixed
       app>
-      <v-toolbar-title>
-        <img
-          src="/logo128x.png"
-          alt="APEK">
-      </v-toolbar-title>
+      <img
+        src="/logo128x.png"
+        alt="APEK">
+
       <v-spacer />
-      <v-btn
+
+      <v-toolbar-items class="hidden-sm-and-down">
+        <template v-for="(item, i) in items">
+          <v-menu
+            v-if="item.children"
+            :key="item.text"
+            open-on-hover
+            offset-y>
+            <v-btn
+              slot="activator"
+              flat
+              v-text="item.text"
+            />
+            <v-list>
+              <v-list-tile
+                v-for="child in item.children"
+                :key="child.text"
+                :to="child.to">
+                <v-list-tile-title>{{ child.text }}</v-list-tile-title>
+              </v-list-tile>
+            </v-list>
+          </v-menu>
+          <v-btn
+            v-else
+            :key="item.to || i"
+            :to="item.to"
+            :exact="item.exact"
+            flat>
+            {{ item.text }}
+          </v-btn>
+        </template>
+      </v-toolbar-items>
+
+      <!-- <v-btn
         icon
         @click.stop="miniVariant = !miniVariant"
       >
@@ -52,9 +137,11 @@
         @click.stop="fixed = !fixed"
       >
         <v-icon>mdi-division</v-icon>
-      </v-btn>
+      </v-btn> -->
 
-      <v-toolbar-side-icon @click="drawer = !drawer">
+      <v-toolbar-side-icon
+        v-if="$vuetify.breakpoint.smAndDown"
+        @click="drawer = !drawer">
         <v-icon>mdi-menu</v-icon>
       </v-toolbar-side-icon>
     </v-toolbar>
@@ -76,18 +163,41 @@ export default {
   data() {
     return {
       clipped: false,
-      drawer: true,
+      drawer: false,
       fixed: false,
-      items: [
-        { icon: 'mdi-apps', title: 'Welcome', to: '/' },
-        { icon: 'mdi-chart-bubble', title: 'Inspire', to: '/inspire' },
-        { icon: 'mdi-nature-people', title: 'Members', to: '/members' },
-      ],
       miniVariant: false,
       right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js',
+      items: [
+        { icon: 'mdi-contacts', text: 'Home', to: '/', exact: true },
+        { icon: 'mdi-history', text: 'Products', to: '/products' },
+        { icon: 'mdi-content-copy', text: 'Members', to: '/members' },
+        {
+          'icon-alt': 'mdi-minus',
+          icon: 'mdi-chevron-down',
+          model: false,
+          text: 'Profile',
+          children: [
+            { icon: 'mdi-plus', text: 'Secretariat' },
+            { icon: 'mdi-plus', text: 'Org. Structure' },
+            { icon: 'mdi-plus', text: 'Business Field' },
+            { icon: 'mdi-plus', text: 'Vision and Mission' },
+          ],
+        },
+        {
+          'icon-alt': 'mdi-minus',
+          icon: 'mdi-chevron-down',
+          model: false,
+          text: 'Info',
+          children: [
+            { text: 'Announcement' },
+            { text: 'Activity' },
+            { text: 'Technology' },
+          ],
+        },
+        { icon: 'mdi-history', text: 'Contact', to: '/inspire' },
+      ],
     };
   },
+  methods: {},
 };
 </script>

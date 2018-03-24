@@ -7,6 +7,11 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: this.title,
+    };
+  },
   async asyncData({ params }) {
     // const postPromise = process.BROWSER_BUILD
     //   ? import('~/content/blog/posts/' + params.slug + '.json')

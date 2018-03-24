@@ -32,13 +32,13 @@ collections:
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     format: 'json'
     fields:
-      - label: "Title"
+      - label: "Company"
         name: "title"
         widget: "string"
       - label: "Registered Date"
         name: "registered"
         widget: "date"
-      - label: "Featured Image"
+      - label: "Tumbnail Image"
         name: "thumbnail"
         widget: "image"
         required: false
