@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@nuxtjs/markdownit": "^1.2.0",
+    "@nuxtjs/pwa": "^2.0.8",
     "markdown-it-attrs": "^1.2.1",
     "markdown-it-container": "^2.0.0",
     "mdi": "^2.1.99",
