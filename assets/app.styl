@@ -7,3 +7,15 @@ $color-pack = false;
 
 html
   overflow-y auto
+
+.toolbar__items >
+  .btn
+    &:hover:not(.btn--active)
+    // &:focus
+      border-bottom: 0.2rem solid #221122
+      .btn__content:before
+        background-color: transparent
+    &--active
+      border-bottom: 0.2rem solid #F44336
+
+
