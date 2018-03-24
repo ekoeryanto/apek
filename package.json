@@ -24,6 +24,9 @@
     ]
   },
   "dependencies": {
+    "@nuxtjs/markdownit": "^1.2.0",
+    "markdown-it-attrs": "^1.2.1",
+    "markdown-it-container": "^2.0.0",
     "mdi": "^2.1.99",
     "nuxt": "^1.0.0",
     "typeface-roboto": "0.0.54",

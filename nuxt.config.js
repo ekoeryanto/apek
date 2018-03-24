@@ -44,6 +44,22 @@ module.exports = {
     '@/plugins/vuetify'
   ],
   /*
+  ** Nuxt.js modules
+  */
+  modules: [
+    '@nuxtjs/markdownit'
+  ],
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    injected: true,
+    use: [
+      'markdown-it-container',
+      'markdown-it-attrs'
+    ]
+  },
+  /*
   ** Route config for pre-rendering
   */
   generate: {
