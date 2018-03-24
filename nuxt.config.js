@@ -12,6 +12,8 @@ var dynamicRoutes = getDynamicPaths({
 
 
 module.exports = {
+  mode: 'spa',
+
   /*
   ** Headers of the page
   */
