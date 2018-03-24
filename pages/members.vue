@@ -20,7 +20,7 @@ export default {
   }),
   data() {
     // Using webpacks context to gather all files from a folder
-    const context = require.context('~/content/member/', false, /\.json$/);
+    const context = require.context('~/content/members/', false, /\.json$/);
 
     const posts = context.keys().map(key => ({
       ...context(key),
