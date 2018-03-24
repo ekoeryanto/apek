@@ -18,7 +18,8 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'apek',
+    title: 'Asosiasi Pengusaha Engineering Karawang',
+    titleTemplate: '%s - APEK',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
