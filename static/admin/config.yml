@@ -18,7 +18,7 @@ collections:
           - name: menu
             label: Menu
             widget: list
-            field:
+            fields:
               - name: text
                 label: Title
                 widget: string
@@ -42,7 +42,7 @@ collections:
               - name: children
                 label: Children
                 widget: list
-                field:
+                fields:
                   - name: text
                     label: Title
                     widget: string
