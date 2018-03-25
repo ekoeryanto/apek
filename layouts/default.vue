@@ -159,7 +159,7 @@
 </template>
 
 <script>
-import * as menu from '~/content/data/menu.json';
+import { menu } from '~/content/data/settings.json';
 
 export default {
   data() {
