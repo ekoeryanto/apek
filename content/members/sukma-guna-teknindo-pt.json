@@ -3,12 +3,14 @@
   "business": [
     "Machining & fabrication"
   ],
-  "address": "Jl. Raya Manunggal VII, Palumbonsari,Citeureup, Palumbonsari - Karawang",
+  "address": "Jl. Raya Manunggal VII, Palumbonsari, Citeureup, Palumbonsari, Karawang",
   "email": [
     "pt.sgt_office@yahoo.com"
   ],
   "phone": [
-    "(0267)4748536"
+    "(0267) 4748536"
   ],
-  "fax": "(0267)8490653"
+  "fax": [
+    "(0267) 8490653"
+  ]
 }
