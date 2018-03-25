@@ -1,7 +1,10 @@
 <template>
   <article>
     <h1>{{ title }}</h1>
-    <div v-html="$md.render(body)" />
+    <h2>{{ address }}</h2>
+    <div
+      v-if="$data.body || null"
+      v-html="$md.render(body)" />
   </article>
 </template>
 
