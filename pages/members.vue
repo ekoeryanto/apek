@@ -1,22 +1,76 @@
 <template>
-  <section class="container">
-    <h2>member</h2>
-    <ul>
-      <li
-        v-for="member in members"
-        :key="member.date">
-        <nuxt-link :to="member._path">
-          {{ member.title }}
-        </nuxt-link>
-      </li>
-    </ul>
-  </section>
+  <v-container
+    grid-list-md
+  >
+    <h2>{{ title }}</h2>
+    <v-data-iterator
+      :items="members"
+      content-tag="v-layout"
+      prev-icon="mdi-chevron-left"
+      next-icon="mdi-chevron-right"
+      hide-actions
+      row
+      wrap
+    >
+      <v-flex
+        slot="item"
+        slot-scope="props"
+        sm12
+        md6
+      >
+        <v-card>
+          <v-card-title><h4>{{ props.item.title }}</h4></v-card-title>
+          <v-divider />
+          <v-list dense>
+            <v-list-tile>
+              <v-list-tile-action>
+                <v-icon>mdi-star</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>{{ props.item.business.join(', ') }}</v-list-tile-content>
+            </v-list-tile>
+            <v-list-tile>
+              <v-list-tile-action>
+                <v-icon>mdi-home</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>{{ props.item.address }}</v-list-tile-content>
+            </v-list-tile>
+            <v-list-tile>
+              <v-list-tile-action>
+                <v-icon>mdi-email</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>{{ props.item.email.join(', ') }}</v-list-tile-content>
+            </v-list-tile>
+            <v-list-tile>
+              <v-list-tile-action>
+                <v-icon>mdi-phone</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>{{ props.item.phone.join(', ') }}</v-list-tile-content>
+            </v-list-tile>
+            <v-list-tile>
+              <v-list-tile-action>
+                <v-icon>mdi-fax</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>{{ props.item.fax && props.item.fax.join() || '-' }}</v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+        </v-card>
+      </v-flex>
+    </v-data-iterator>
+  </v-container>
 </template>
 
 <script>
+import { VDataIterator, VDivider } from 'vuetify';
+
+const title = 'Members';
+
 export default {
+  components: {
+    VDataIterator,
+    VDivider,
+  },
   head: () => ({
-    title: 'Members',
+    title,
   }),
   data() {
     // Using webpacks context to gather all files from a folder
@@ -27,7 +81,14 @@ export default {
       _path: `/member/${key.replace('.json', '').replace('./', '')}`,
     }));
 
-    return { members };
+    return {
+      members,
+      title,
+      rowsPerPageItems: [4, 8, 12],
+      pagination: {
+        rowsPerPage: 4,
+      },
+    };
   },
 };
 </script>
