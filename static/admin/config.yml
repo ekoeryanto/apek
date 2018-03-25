@@ -10,33 +10,13 @@ collections:
     editor:
       preview: false
     files:
-      - name: menu
-        label: Menu
-        description: Site Menu
-        file: content/data/menu.json
+      - name: settings
+        label: Settings
+        description: General Settings
+        file: content/data/settings.json
         fields:
-          - name: text
-            label: Title
-            widget: string
-            required: true
-          - name: to
-            label: Path
-            widget: string
-            required: true
-          - name: icon
-            label: Icon
-            widget: string
-          - name: icon-alt
-            label: Alternative Icon
-            widget: string
-          - name: model
-            label: Expanded
-            widget: boolean
-          - name: exact
-            label: Exact Path
-            widget: boolean
-          - name: children
-            label: Children
+          - name: menu
+            label: Menu
             widget: list
             field:
               - name: text
@@ -50,9 +30,33 @@ collections:
               - name: icon
                 label: Icon
                 widget: string
+              - name: icon-alt
+                label: Alternative Icon
+                widget: string
+              - name: model
+                label: Expanded
+                widget: boolean
               - name: exact
                 label: Exact Path
                 widget: boolean
+              - name: children
+                label: Children
+                widget: list
+                field:
+                  - name: text
+                    label: Title
+                    widget: string
+                    required: true
+                  - name: to
+                    label: Path
+                    widget: string
+                    required: true
+                  - name: icon
+                    label: Icon
+                    widget: string
+                  - name: exact
+                    label: Exact Path
+                    widget: boolean
 
 
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
