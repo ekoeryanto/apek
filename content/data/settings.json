@@ -9,10 +9,10 @@
       "model": false,
       "text": "Profile",
       "children": [
-        { "icon": "mdi-plus", "text": "Secretariat" },
-        { "icon": "mdi-plus", "text": "Org. Structure" },
-        { "icon": "mdi-plus", "text": "Business Field" },
-        { "icon": "mdi-plus", "text": "Vision and Mission" }
+        { "icon": "mdi-plus", "text": "Secretariat", "to": "/secretariat" },
+        { "icon": "mdi-plus", "text": "Org. Structure", "to": "/structure" },
+        { "icon": "mdi-plus", "text": "Business Field", "to": "/business" },
+        { "icon": "mdi-plus", "text": "Vision and Mission", "to": "/vision-mission" }
       ]
     },
     {
@@ -26,6 +26,6 @@
         { "text": "Technology" }
       ]
     },
-    { "icon": "mdi-history", "text": "Contact", "to": "/inspire" }
+    { "icon": "mdi-history", "text": "Contact", "to": "/contact" }
   ]
 }

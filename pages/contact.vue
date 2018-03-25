@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="bgx">
-      <h2 class="white--text py-5 px-5">{{ $data.title }}</h2>
+      <h1 class="white--text py-5 px-5">{{ $data.title }}</h1>
     </div>
     <v-container
       v-if="$data.body"
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-const title = 'Secretariat';
+const title = 'Contact';
 
 export default {
   head: () => ({
@@ -23,7 +23,7 @@ export default {
     title,
   }),
   async asyncData() {
-    const data = await import('~/content/pages/secretariat.json');
+    const data = await import('~/content/pages/contact.json');
     return data;
   },
 };
