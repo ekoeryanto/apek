@@ -7,7 +7,7 @@ const nodeExternals = require('webpack-node-externals')
 // The Nuxt routes are generate by Nuxt automatically based on the pages folder.
 var dynamicRoutes = getDynamicPaths({
   '/blog': 'blog/posts/*.json',
-  '/member': 'member/*.json'
+  '/member': 'members/*.json'
 });
 
 
