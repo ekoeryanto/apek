@@ -159,6 +159,8 @@
 </template>
 
 <script>
+import * as menu from '~/content/data/menu.json';
+
 export default {
   data() {
     return {
@@ -167,35 +169,7 @@ export default {
       fixed: false,
       miniVariant: false,
       right: true,
-      items: [
-        { icon: 'mdi-contacts', text: 'Home', to: '/', exact: true },
-        { icon: 'mdi-history', text: 'Products', to: '/products' },
-        { icon: 'mdi-content-copy', text: 'Members', to: '/members' },
-        {
-          'icon-alt': 'mdi-minus',
-          icon: 'mdi-chevron-down',
-          model: false,
-          text: 'Profile',
-          children: [
-            { icon: 'mdi-plus', text: 'Secretariat' },
-            { icon: 'mdi-plus', text: 'Org. Structure' },
-            { icon: 'mdi-plus', text: 'Business Field' },
-            { icon: 'mdi-plus', text: 'Vision and Mission' },
-          ],
-        },
-        {
-          'icon-alt': 'mdi-minus',
-          icon: 'mdi-chevron-down',
-          model: false,
-          text: 'Info',
-          children: [
-            { text: 'Announcement' },
-            { text: 'Activity' },
-            { text: 'Technology' },
-          ],
-        },
-        { icon: 'mdi-history', text: 'Contact', to: '/inspire' },
-      ],
+      items: menu,
     };
   },
   methods: {},
