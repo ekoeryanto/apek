@@ -57,6 +57,18 @@ collections:
                     label: Exact Path
                     widget: boolean
 
+  - name: page
+    label: Page
+    delete: false
+    files:
+      - name: Secretariat
+        file: content/pages/secretariat.json
+        fields:
+          - name: title
+            widget: string
+            required: true
+          - name: body
+            widget: markdown
 
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
