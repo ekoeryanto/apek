@@ -41,18 +41,23 @@ collections:
       - label: "Businness"
         name: "business"
         widget: "list"
+        required: false
       - label: "Email"
         name: "email"
         widget: "list"
+        required: false
       - label: "Phone"
         name: "phone"
         widget: "list"
+        required: false
       - label: "Fax"
         name: "fax"
         widget: "list"
+        required: false
       - label: "Registered Date"
         name: "registered"
         widget: "date"
+        required: false
       - label: "Tumbnail Image"
         name: "thumbnail"
         widget: "image"
@@ -60,3 +65,4 @@ collections:
       - label: "Detail"
         name: "detail"
         widget: "markdown"
+        required: false
