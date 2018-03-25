@@ -79,7 +79,6 @@
     </v-navigation-drawer>
 
     <v-toolbar
-      :clipped-left="clipped"
       fixed
       app>
       <img
@@ -146,14 +145,10 @@
       </v-toolbar-side-icon>
     </v-toolbar>
     <v-content>
-      <v-container>
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-content>
-    <v-footer
-      :fixed="fixed"
-      app>
-      <span>&copy; 2017</span>
+    <v-footer>
+      <span>&copy; 2018</span>
     </v-footer>
   </v-app>
 </template>
@@ -164,10 +159,8 @@ import { menu } from '~/content/data/settings.json';
 export default {
   data() {
     return {
-      clipped: false,
       drawer: false,
       fixed: false,
-      miniVariant: false,
       right: true,
       items: menu,
     };
