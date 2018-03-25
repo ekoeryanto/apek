@@ -10,9 +10,8 @@ collections:
     editor:
       preview: false
     files:
-      - name: settings
-        label: Settings
-        description: General Settings
+      - name: general
+        label: General Settings
         file: content/data/settings.json
         fields:
           - name: menu
