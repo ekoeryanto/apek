@@ -4,38 +4,17 @@ backend:
 media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
 public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
 collections:
-  - name: menu
-    label: Menu
-    file: content/data/menu.json
+  - name: setting
+    label: Setting
     delete: false # Prevent users from deleting documents in this collection
     editor:
       preview: false
-    description: Site Menu
-    fields:
-      - name: text
-        label: Title
-        widget: string
-        required: true
-      - name: to
-        label: Path
-        widget: string
-        required: true
-      - name: icon
-        label: Icon
-        widget: string
-      - name: icon-alt
-        label: Alternative Icon
-        widget: string
-      - name: model
-        label: Expanded
-        widget: boolean
-      - name: exact
-        label: Exact Path
-        widget: boolean
-      - name: children
-        label: Children
-        widget: list
-        field:
+    files:
+      - name: menu
+        label: Menu
+        description: Site Menu
+        file: content/data/menu.json
+        fields:
           - name: text
             label: Title
             widget: string
@@ -47,9 +26,33 @@ collections:
           - name: icon
             label: Icon
             widget: string
+          - name: icon-alt
+            label: Alternative Icon
+            widget: string
+          - name: model
+            label: Expanded
+            widget: boolean
           - name: exact
             label: Exact Path
             widget: boolean
+          - name: children
+            label: Children
+            widget: list
+            field:
+              - name: text
+                label: Title
+                widget: string
+                required: true
+              - name: to
+                label: Path
+                widget: string
+                required: true
+              - name: icon
+                label: Icon
+                widget: string
+              - name: exact
+                label: Exact Path
+                widget: boolean
 
 
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
