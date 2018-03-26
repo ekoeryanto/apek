@@ -76,7 +76,7 @@ collections:
               - name: image
                 label: Image
                 widget: image
-                default: /logo.png
+                default: /images/uploads/logo.png
               - name: body
                 label: Body
                 widget: markdown

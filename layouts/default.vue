@@ -82,7 +82,7 @@
       fixed
       app>
       <img
-        src="/logo128x.png"
+        src="/images/uploads/logo128x.png"
         alt="APEK">
 
       <v-spacer />

@@ -62,6 +62,10 @@ module.exports = {
   /*
   ** modules configuration
   */
+
+  icon: {
+    iconSrc: '~/static/images/uploads/icon.png'
+  },
   markdownit: {
     preset: 'default',
     linkify: true,
