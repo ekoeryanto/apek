@@ -1,1 +1,30 @@
-{}
+{
+  "jumbotron": {
+    "background": "/images/uploads/atom.jpg",
+    "body": "Hello"
+  },
+  "business": [
+    {
+      "title": "Mesin Produksi"
+    },
+    {
+      "title": "Spare-part Industri"
+    },
+    {
+      "title": "Alat Kerja Pabrik"
+    },
+    {
+      "title": "Sarana Pabrik"
+    },
+    {
+      "title": "Construction & Civil"
+    },
+    {
+      "title": "Mechanical Electrical"
+    },
+    {
+      "title": "Technical Supplier"
+    }
+  ],
+  "sponsor": []
+}
