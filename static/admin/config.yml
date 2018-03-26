@@ -70,7 +70,7 @@ collections:
             widget: string
             required: true
           - name: body
-            title: Body
+            label: Body
             widget: markdown
       - name: structure
         label: Structure
@@ -81,7 +81,7 @@ collections:
             widget: string
             required: true
           - name: body
-            title: Body
+            label: Body
             widget: markdown
       - name: business
         label: Business
@@ -92,7 +92,7 @@ collections:
             widget: string
             required: true
           - name: body
-            title: Body
+            label: Body
             widget: markdown
       - name: vision-mission
         label: Vision - Mission
@@ -103,7 +103,7 @@ collections:
             widget: string
             required: true
           - name: body
-            title: Body
+            label: Body
             widget: markdown
       - name: products
         label: Products
@@ -114,7 +114,7 @@ collections:
             widget: string
             required: true
           - name: body
-            title: Body
+            label: Body
             widget: markdown
       - name: contact
         label: Contact
@@ -125,7 +125,7 @@ collections:
             widget: string
             required: true
           - name: body
-            title: Body
+            label: Body
             widget: markdown
 
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
