@@ -61,6 +61,46 @@ collections:
     label: Page
     delete: false
     files:
+      - name: home
+        label: Home
+        file: content/pages/home.json
+        fields:
+          - name: jumbotron
+            label: Jumbotron
+            widget: object
+            fields:
+              - name: background
+                label: Background
+                widget: image
+                default: /images/uploads/atom.jpg
+              - name: image
+                label: Image
+                widget: image
+                default: /logo.png
+              - name: body
+                label: Body
+                widget: markdown
+          - name: business
+            label: Business Fields
+            widget: list
+            fields:
+              - label: Title
+                name: title
+                widget: string
+              - label: Icon
+                name: icon
+                widget: string
+          - name: sponsor
+            label: Sponsors
+            widget: list
+            fields:
+              - label: Title
+                name: title
+                widget: string
+              - label: Image
+                name: image
+                widget: image
+
       - name: Secretariat
         label: Secretariat
         file: content/pages/secretariat.json
