@@ -163,10 +163,36 @@ collections:
           - name: title
             label: Title
             widget: string
-            required: true
-          - name: body
-            label: Body
+          - name: intro
+            label: Intro
             widget: markdown
+          - name: address
+            label: Address
+            widget: list
+          - name: email
+            label: Email
+            widget: list
+          - name: phone
+            label: Phone
+            widget: list
+          - name: fax
+            label: Fax
+            widget: list
+          - name: social
+            label: Social
+            widget: list
+            fields:
+              - name: vendor
+                label: Vendor
+                widget: string
+              - name: url
+                label: URL
+                widget: string
+              - name: icon
+                label: Icon
+                widget: string
+
+
 
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
