@@ -64,7 +64,7 @@ module.exports = {
   */
 
   icon: {
-    iconSrc: '~/static/images/uploads/icon.png'
+    iconSrc: 'static/images/uploads/icon.png'
   },
   markdownit: {
     preset: 'default',
