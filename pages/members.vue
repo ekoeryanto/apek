@@ -1,71 +1,75 @@
 <template>
-  <v-container
-    grid-list-md
-  >
-    <h2>{{ title }}</h2>
-    <v-data-iterator
-      :items="members"
-      content-tag="v-layout"
-      prev-icon="mdi-chevron-left"
-      next-icon="mdi-chevron-right"
-      hide-actions
-      row
-      wrap
+  <div>
+    <apek-title :title="title" />
+    <v-container
+      grid-list-md
     >
-      <v-flex
-        slot="item"
-        slot-scope="props"
-        sm12
-        md6
+      <v-data-iterator
+        :items="members"
+        content-tag="v-layout"
+        prev-icon="mdi-chevron-left"
+        next-icon="mdi-chevron-right"
+        hide-actions
+        row
+        wrap
       >
-        <v-card>
-          <v-card-title><h4>{{ props.item.title }}</h4></v-card-title>
-          <v-divider />
-          <v-list dense>
-            <v-list-tile>
-              <v-list-tile-action>
-                <v-icon>mdi-star</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>{{ props.item.business.join(', ') }}</v-list-tile-content>
-            </v-list-tile>
-            <v-list-tile>
-              <v-list-tile-action>
-                <v-icon>mdi-home</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>{{ props.item.address }}</v-list-tile-content>
-            </v-list-tile>
-            <v-list-tile>
-              <v-list-tile-action>
-                <v-icon>mdi-email</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>{{ props.item.email.join(', ') }}</v-list-tile-content>
-            </v-list-tile>
-            <v-list-tile>
-              <v-list-tile-action>
-                <v-icon>mdi-phone</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>{{ props.item.phone.join(', ') }}</v-list-tile-content>
-            </v-list-tile>
-            <v-list-tile>
-              <v-list-tile-action>
-                <v-icon>mdi-fax</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>{{ props.item.fax && props.item.fax.join() || '-' }}</v-list-tile-content>
-            </v-list-tile>
-          </v-list>
-        </v-card>
-      </v-flex>
-    </v-data-iterator>
-  </v-container>
+        <v-flex
+          slot="item"
+          slot-scope="props"
+          sm12
+          md6
+        >
+          <v-card>
+            <v-card-title><h4>{{ props.item.title }}</h4></v-card-title>
+            <v-divider />
+            <v-list dense>
+              <v-list-tile>
+                <v-list-tile-action>
+                  <v-icon>mdi-star</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>{{ props.item.business.join(', ') }}</v-list-tile-content>
+              </v-list-tile>
+              <v-list-tile>
+                <v-list-tile-action>
+                  <v-icon>mdi-home</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>{{ props.item.address }}</v-list-tile-content>
+              </v-list-tile>
+              <v-list-tile>
+                <v-list-tile-action>
+                  <v-icon>mdi-email</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>{{ props.item.email.join(', ') }}</v-list-tile-content>
+              </v-list-tile>
+              <v-list-tile>
+                <v-list-tile-action>
+                  <v-icon>mdi-phone</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>{{ props.item.phone.join(', ') }}</v-list-tile-content>
+              </v-list-tile>
+              <v-list-tile>
+                <v-list-tile-action>
+                  <v-icon>mdi-fax</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>{{ props.item.fax && props.item.fax.join() || '-' }}</v-list-tile-content>
+              </v-list-tile>
+            </v-list>
+          </v-card>
+        </v-flex>
+      </v-data-iterator>
+    </v-container>
+  </div>
 </template>
 
 <script>
 import { VDataIterator, VDivider } from 'vuetify';
 
 const title = 'Members';
+import ApekTitle from '~/components/ApekTitle';
 
 export default {
   components: {
+    ApekTitle,
     VDataIterator,
     VDivider,
   },

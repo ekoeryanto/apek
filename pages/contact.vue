@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div class="bgx">
-      <h1 class="white--text py-5 px-5">{{ $data.title }}</h1>
-    </div>
+    <apek-title :title="title"/>
     <v-container
       v-if="$data.body"
       v-html="$md.render($data.body)"/>
@@ -15,7 +13,12 @@
 <script>
 const title = 'Contact';
 
+import ApekTitle from '~/components/ApekTitle';
+
 export default {
+  components: {
+    ApekTitle,
+  },
   head: () => ({
     title,
   }),
