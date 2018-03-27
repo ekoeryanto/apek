@@ -12,35 +12,30 @@
       >
 
         <v-flex md6>
-          <v-form
+          <form
             ref="contact"
-            v-model="form.valid"
             lazy-validation
             name="contact"
             column
             data-netlify="true"
+            action=""
+            method="post"
           >
             <div style="display: none">
               <input name="bot-field">
             </div>
             <v-text-field
-              v-model="form.name"
-              :rules="form.nameRules"
               label="Name"
               flex
               required
             />
 
             <v-text-field
-              v-model="form.email"
-              :rules="form.emailRules"
               label="E-mail"
               required
             />
 
             <v-text-field
-              v-model="form.message"
-              :rules="form.messageRules"
               label="Message"
               multi-line
               rows="3"
@@ -59,12 +54,11 @@
               <v-btn
                 :disabled="!form.valid"
                 flat
-                @click="submit"
               >
                 submit
               </v-btn>
             </div>
-          </v-form>
+          </form>
         </v-flex>
 
         <v-flex>
