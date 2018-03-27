@@ -85,7 +85,7 @@
               :alt="b.title"
               height="80px"
             >
-            <div class="title my-4 white--text">{{ b.title }}</div>
+            <!-- <div class="title my-4 white--text">{{ b.title }}</div> -->
           </v-flex>
         </v-layout>
       </v-container>
