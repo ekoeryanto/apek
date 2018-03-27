@@ -2,6 +2,8 @@ var glob = require('glob');
 var path = require('path');
 const nodeExternals = require('webpack-node-externals')
 
+const dev = process.env.NODE_ENV !== 'production'
+
 // Enhance Nuxt's generate process by gathering all content files from Netifly CMS
 // automatically and match it to the path of your Nuxt routes.
 // The Nuxt routes are generate by Nuxt automatically based on the pages folder.
@@ -10,7 +12,7 @@ var dynamicRoutes = getDynamicPaths({
   '/member': 'members/*.json'
 });
 
-module.exports = {
+const nuxtjs = {
   mode: 'spa',
 
   /*
@@ -25,9 +27,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Asosiasi Pengusaha Engineering Karawang' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/mdi@2.2.43/css/materialdesignicons.min.css' },
-      { rel: 'stylesheet', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/typeface-roboto' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
@@ -147,3 +147,17 @@ function getDynamicPaths(urlFilepathTable) {
     })
   );
 }
+
+if (dev) {
+  nuxtjs.css.unshift(...[
+    './node_modules/typeface-roboto/index.css',
+    './node_modules/mdi/css/materialdesignicons.css'
+  ])
+} else {
+  nuxtjs.head.link.concat([
+    { rel: 'stylesheet', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/mdi@2.2.43/css/materialdesignicons.min.css' },
+    { rel: 'stylesheet', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/typeface-roboto' }
+  ])
+}
+
+module.exports = nuxtjs
