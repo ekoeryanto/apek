@@ -7,31 +7,31 @@
   "business": [
     {
       "title": "Mesin Produksi",
-      "icon": "mdi-factory"
+      "icon": "mdi-pier-crane"
     },
     {
       "title": "Spare-part Industri",
-      "icon": "mdi-factory"
+      "icon": "mdi-wrench"
     },
     {
       "title": "Alat Kerja Pabrik",
-      "icon": "mdi-factory"
+      "icon": "mdi-forklift"
     },
     {
       "title": "Sarana Pabrik",
-      "icon": "mdi-factory"
+      "icon": "mdi-seat-recline-extra"
     },
     {
       "title": "Construction & Civil",
-      "icon": "mdi-factory"
+      "icon": "mdi-worker"
     },
     {
       "title": "Mechanical Electrical",
-      "icon": "mdi-factory"
+      "icon": "mdi-source-pull"
     },
     {
       "title": "Technical Supplier",
-      "icon": "mdi-factory"
+      "icon": "mdi-nature-people"
     }
   ],
   "sponsor": [
