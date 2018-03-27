@@ -18,7 +18,11 @@
             lazy-validation
             name="contact"
             column
+            data-netlify="true"
           >
+            <div style="display: none">
+              <input name="bot-field">
+            </div>
             <v-text-field
               v-model="form.name"
               :rules="form.nameRules"
