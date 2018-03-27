@@ -149,12 +149,12 @@ function getDynamicPaths(urlFilepathTable) {
 }
 
 if (dev) {
-  nuxtjs.css.unshift(...[
+  nuxtjs.css = [
     './node_modules/typeface-roboto/index.css',
     './node_modules/mdi/css/materialdesignicons.css'
-  ])
+  ].concat(nuxtjs.css)
 } else {
-  nuxtjs.head.link.concat([
+  nuxtjs.head = nuxtjs.link.concat([
     { rel: 'stylesheet', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/mdi@2.2.43/css/materialdesignicons.min.css' },
     { rel: 'stylesheet', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/typeface-roboto' }
   ])
