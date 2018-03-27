@@ -2,8 +2,6 @@
   <v-app>
     <v-navigation-drawer
       v-if="$vuetify.breakpoint.smAndDown"
-      :mini-variant.sync="miniVariant"
-      :clipped="clipped"
       v-model="drawer"
       right
       temporary
@@ -146,7 +144,6 @@ export default {
   data() {
     return {
       drawer: false,
-      right: true,
       menu,
       social,
     };
