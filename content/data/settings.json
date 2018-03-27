@@ -1,7 +1,7 @@
 {
   "menu": [
     { "icon": "mdi-contacts", "text": "Home", "to": "/", "exact": true },
-    { "icon": "mdi-history", "text": "Products", "to": "/products" },
+    { "icon": "mdi-history", "text": "Products", "to": "/products", "show": false },
     { "icon": "mdi-content-copy", "text": "Members", "to": "/members" },
     {
       "icon-alt": "mdi-minus",
@@ -20,6 +20,7 @@
       "icon": "mdi-chevron-down",
       "model": false,
       "text": "Info",
+      "show": false,
       "children": [
         { "text": "Announcement" },
         { "text": "Activity" },

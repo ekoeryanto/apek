@@ -10,26 +10,7 @@
       fixed
       app>
       <v-list>
-        <template v-for="item in items">
-          <!-- <v-layout
-            v-if="item.heading"
-            :key="item.heading"
-            row
-            align-center
-          >
-            <v-flex xs6>
-              <v-subheader v-if="item.heading">
-                {{ item.heading }}
-              </v-subheader>
-            </v-flex>
-            <v-flex
-              xs6
-              class="text-xs-center">
-              <a
-                href="#!"
-                class="body-2 black--text">EDIT</a>
-            </v-flex>
-          </v-layout> -->
+        <template v-for="item in shownMenu">
           <v-list-group
             v-if="item.children"
             v-model="item.model"
@@ -88,7 +69,7 @@
       <v-spacer />
 
       <v-toolbar-items class="hidden-sm-and-down">
-        <template v-for="(item, i) in items">
+        <template v-for="(item, i) in shownMenus">
           <v-menu
             v-if="item.children"
             :key="item.text"
@@ -119,25 +100,6 @@
         </template>
       </v-toolbar-items>
 
-      <!-- <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon v-html="miniVariant ? 'mdi-chevron-right' : 'mdi-chevron-left'"/>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-web</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-division</v-icon>
-      </v-btn> -->
-
       <v-toolbar-side-icon
         v-if="$vuetify.breakpoint.smAndDown"
         @click="drawer = !drawer">
@@ -147,23 +109,52 @@
     <v-content>
       <nuxt />
     </v-content>
-    <v-footer>
-      <span>&copy; 2018</span>
+    <v-footer dark>
+      <v-layout
+        row
+        class="px-4"
+        justify-space-around
+        align-center
+      >
+        <v-flex>
+          &copy; APEK 2018
+        </v-flex>
+
+        <v-flex class="text-xs-right">
+          <v-btn
+            v-for="sos in social"
+            :key="sos.url"
+            :href="sos.url"
+            target="_blank"
+            icon
+            class="my-0"
+          >
+            <v-icon v-text="sos.icon"/>
+          </v-btn>
+        </v-flex>
+
+      </v-layout>
     </v-footer>
   </v-app>
 </template>
 
 <script>
 import { menu } from '~/content/data/settings.json';
+import { social } from '~/content/pages/contact.json';
 
 export default {
   data() {
     return {
       drawer: false,
-      fixed: false,
       right: true,
-      items: menu,
+      menu,
+      social,
     };
+  },
+  computed: {
+    shownMenus() {
+      return this.menu.filter(menu => menu.show !== false);
+    },
   },
   methods: {},
 };
