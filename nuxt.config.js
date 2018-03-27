@@ -10,6 +10,20 @@ var dynamicRoutes = getDynamicPaths({
   '/member': 'members/*.json'
 });
 
+const cdn = []
+const css = []
+
+if (process.env.NODE_ENV === 'development') {
+  css.concat([
+    './node_modules/typeface-roboto/index.css',
+    './node_modules/mdi/css/materialdesignicons.css',
+  ])
+} else {
+  cdn.concat([
+    'https://cdn.jsdelivr.net/npm/mdi@2.2.43/css/materialdesignicons.min.css',
+    'https://cdn.jsdelivr.net/npm/typeface-roboto'
+  ])
+}
 
 module.exports = {
   mode: 'spa',
@@ -26,7 +40,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Asosiasi Pengusaha Engineering Karawang' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      ...cdn.map(x => ({ rel: 'stylesheet', href: x }))
     ]
   },
 
@@ -39,8 +54,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    './node_modules/typeface-roboto/index.css',
-    './node_modules/mdi/css/materialdesignicons.css',
+    ...css,
     '@/assets/app.styl'
   ],
 
@@ -65,6 +79,18 @@ module.exports = {
 
   icon: {
     iconSrc: 'static/images/uploads/icon.png'
+  },
+  workbox: {
+    runtimeCaching: [
+      {
+        // Should be a regex string. Compiles into new RegExp('https://my-cdn.com/.*')
+        urlPattern: 'http://cdn.jsdelivr.net/.*',
+        // Defaults to `networkFirst` if omitted
+        handler: 'cacheFirst',
+        // Defaults to `GET` if omitted
+        method: 'GET'
+      }
+    ]
   },
   markdownit: {
     preset: 'default',
