@@ -10,7 +10,7 @@
       fixed
       app>
       <v-list>
-        <template v-for="item in shownMenu">
+        <template v-for="item in shownMenus">
           <v-list-group
             v-if="item.children"
             v-model="item.model"
