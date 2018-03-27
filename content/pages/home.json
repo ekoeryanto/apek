@@ -1,30 +1,55 @@
 {
   "jumbotron": {
     "background": "/images/uploads/atom.jpg",
-    "body": "Hello"
+    "image": "/images/uploads/logo.png",
+    "body": "Asosiasi Pengusaha Engineering Karawang"
   },
   "business": [
     {
-      "title": "Mesin Produksi"
+      "title": "Mesin Produksi",
+      "icon": "mdi-factory"
     },
     {
-      "title": "Spare-part Industri"
+      "title": "Spare-part Industri",
+      "icon": "mdi-factory"
     },
     {
-      "title": "Alat Kerja Pabrik"
+      "title": "Alat Kerja Pabrik",
+      "icon": "mdi-factory"
     },
     {
-      "title": "Sarana Pabrik"
+      "title": "Sarana Pabrik",
+      "icon": "mdi-factory"
     },
     {
-      "title": "Construction & Civil"
+      "title": "Construction & Civil",
+      "icon": "mdi-factory"
     },
     {
-      "title": "Mechanical Electrical"
+      "title": "Mechanical Electrical",
+      "icon": "mdi-factory"
     },
     {
-      "title": "Technical Supplier"
+      "title": "Technical Supplier",
+      "icon": "mdi-factory"
     }
   ],
-  "sponsor": []
+  "sponsor": [
+    {
+      "title": "Kemenkop",
+      "image": "/images/uploads/kemenkop.jpg"
+    },
+    {
+      "title": "Kemenristekdikti",
+      "image": "/images/uploads/kemenristekdikti.png"
+    },
+    {
+      "title": "bp2d",
+      "image": "/images/uploads/bp2d.png"
+    },
+    {
+      "title": "perindustrian",
+      "image": "/images/uploads/perindustrian.png"
+    }
+  ]
 }
