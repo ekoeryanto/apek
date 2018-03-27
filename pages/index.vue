@@ -33,6 +33,7 @@
         <v-flex>
           <v-btn
             icon
+            @click="$vuetify.goTo('.business-field', {offset: -65})"
           >
             <v-icon color="white">mdi-chevron-down</v-icon>
           </v-btn>
@@ -95,6 +96,8 @@
 <script>
 import ProgressiveBackground from '@/components/background.vue';
 import ProgressiveImage from '@/components/image.vue';
+// import * as easings from 'vuetify/es5/util/easing-patterns';
+
 export default {
   components: {
     ProgressiveBackground,
