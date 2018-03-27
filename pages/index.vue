@@ -1,46 +1,54 @@
 <template>
   <div>
-    <progressive-background
-      src="/images/uploads/atom.jpg"
-      placeholder="/images/atom@20x.jpg"
-      blur.number="30"
-      overlay="linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%)">
-      <v-layout
-        column
-        align-center
-        align-content-space-between
-        justify-center
-        align
-        class="text-xs-center white--text fill-height">
-        <v-spacer/>
-        <v-flex>
-          <img
-            :src="jumbotron.image"
-            alt="APEK"
-          >
-          <div
-            class="headline"
-            v-html="$md.render(jumbotron.body)"
-          />
-          <!--
-            <progressive-image
+    <v-container
+      fluid
+      fill-height
+      class="px-0 py-0"
+    >
+      <progressive-background
+        src="/images/uploads/atom.jpg"
+        placeholder="/images/atom@20x.jpg"
+        blur.number="30"
+        style="height: 98vh"
+        overlay="linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%)">
+        <v-layout
+          column
+          align-center
+          align-content-space-between
+          justify-center
+          align
+          class="text-xs-center white--text fill-height">
+          <v-spacer/>
+          <v-flex>
+            <img
               :src="jumbotron.image"
-              :placeholder="jumbotron.image"
-              blur.number="30"
+              alt="APEK"
+              width="80%"
+            >
+            <div
+              class="title"
+              v-html="$md.render(jumbotron.body)"
             />
-          -->
-        </v-flex>
-        <v-flex>
-          <v-btn
-            icon
-            @click="$vuetify.goTo('.business-field', {offset: -65})"
-          >
-            <v-icon color="white">mdi-chevron-down</v-icon>
-          </v-btn>
-        </v-flex>
+            <!--
+              <progressive-image
+                :src="jumbotron.image"
+                :placeholder="jumbotron.image"
+                blur.number="30"
+              />
+            -->
+          </v-flex>
+          <v-flex>
+            <v-btn
+              icon
+              @click="$vuetify.goTo('.business-field', {offset: -65})"
+            >
+              <v-icon color="white">mdi-chevron-down</v-icon>
+            </v-btn>
+          </v-flex>
 
-      </v-layout>
-    </progressive-background>
+        </v-layout>
+      </progressive-background>
+    </v-container>
     <div
       class="business-field bgx"
     >
