@@ -8,10 +8,10 @@
       <v-layout
         row
         wrap
-        grid-list-xs
+        grid-list-md
       >
 
-        <v-flex md6>
+        <v-flex sm12 md6>
           <v-form
             @submit.prevent="send"
             ref="contact"
@@ -78,15 +78,7 @@
         </v-flex>
 
         <v-flex>
-          <v-list style="background: transparent" :dense="$vuetify.breakpoint.mdAndDown">
-            <v-list-tile>
-              <v-list-tile-action>
-                <v-icon>home</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-tile-list-title v-text="address.join(', ')" />
-              </v-list-tile-content>
-            </v-list-tile>
+          <v-list style="background: transparent">
             <v-list-tile>
               <v-list-tile-action>
                 <v-icon>email</v-icon>
@@ -105,12 +97,20 @@
               </v-list-tile-action>
               <v-list-tile-content v-text="fax.join(', ')" />
             </v-list-tile>
+            <v-list-tile>
+              <v-list-tile-action>
+                <v-icon>home</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>
+                <v-list-tile-title v-text="address" />
+                <v-list-tile-sub-title v-if="address2" v-text="address2" />
+              </v-list-tile-content>
+            </v-list-tile>
           </v-list>
-          <div>
-            <no-ssr>
-              <social-networks :networks="social" btn-class="mx-3" />
-            </no-ssr>
-          </div>
+
+          <no-ssr class="mt-4">
+            <social-networks :networks="social" btn-class="mx-3" />
+          </no-ssr>
         </v-flex>
       </v-layout>
     </v-container>

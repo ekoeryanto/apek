@@ -172,7 +172,10 @@ collections:
             widget: markdown
           - name: address
             label: Address
-            widget: list
+            widget: string
+          - name: address2
+            label: Address 2
+            widget: string
           - name: email
             label: Email
             widget: list
