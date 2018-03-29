@@ -11,7 +11,7 @@
     <v-toolbar fixed app>
       <img src="/images/logo.png" alt="Logo" width="128">
       <v-spacer />
-      <toolbar-menu :items="menus"/>
+      <toolbar-menu :items="menus" class="mx-3"/>
       <v-toolbar-side-icon @click="drawer = !drawer" class="hidden-md-and-up"/>
     </v-toolbar>
     <v-content>
