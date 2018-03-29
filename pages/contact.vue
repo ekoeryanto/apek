@@ -78,12 +78,14 @@
         </v-flex>
 
         <v-flex>
-          <v-list style="background: transparent">
+          <v-list style="background: transparent" :dense="$vuetify.breakpoint.mdAndDown">
             <v-list-tile>
               <v-list-tile-action>
                 <v-icon>home</v-icon>
               </v-list-tile-action>
-              <v-list-tile-content v-text="address.join(', ')" />
+              <v-list-tile-content>
+                <v-tile-list-title v-text="address.join(', ')" />
+              </v-list-tile-content>
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-action>
