@@ -1,55 +1,55 @@
 {
   "jumbotron": {
-    "background": "/images/uploads/atom.jpg",
-    "image": "/images/uploads/logo.png",
+    "background": "/images/atom.jpg",
+    "image": "/images/logo.png",
     "body": "Asosiasi Pengusaha Engineering Karawang"
   },
   "business": [
     {
       "title": "Mesin Produksi",
-      "icon": "mdi-pier-crane"
+      "icon": "rv_hookup"
     },
     {
       "title": "Spare-part Industri",
-      "icon": "mdi-wrench"
+      "icon": "settings"
     },
     {
       "title": "Alat Kerja Pabrik",
-      "icon": "mdi-forklift"
+      "icon": "layers"
     },
     {
       "title": "Sarana Pabrik",
-      "icon": "mdi-seat-recline-extra"
+      "icon": "domain"
     },
     {
       "title": "Construction & Civil",
-      "icon": "mdi-worker"
+      "icon": "streetview"
     },
     {
       "title": "Mechanical Electrical",
-      "icon": "mdi-source-pull"
+      "icon": "ev_station"
     },
     {
       "title": "Technical Supplier",
-      "icon": "mdi-nature-people"
+      "icon": "nature_people"
     }
   ],
   "sponsor": [
     {
       "title": "Kemenkop",
-      "image": "/images/uploads/kemenkop.jpg"
+      "image": "/images/kemenkop.jpg"
     },
     {
       "title": "Kemenristekdikti",
-      "image": "/images/uploads/kemenristekdikti.png"
+      "image": "/images/kemenristekdikti.png"
     },
     {
       "title": "bp2d",
-      "image": "/images/uploads/bp2d.png"
+      "image": "/images/bp2d.png"
     },
     {
       "title": "perindustrian",
-      "image": "/images/uploads/perindustrian.png"
+      "image": "/images/perindustrian.png"
     }
   ]
 }

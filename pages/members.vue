@@ -25,31 +25,31 @@
             <v-list dense>
               <v-list-tile>
                 <v-list-tile-action>
-                  <v-icon>mdi-star</v-icon>
+                  <v-icon>star</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>{{ props.item.business.join(', ') }}</v-list-tile-content>
               </v-list-tile>
               <v-list-tile>
                 <v-list-tile-action>
-                  <v-icon>mdi-home</v-icon>
+                  <v-icon>home</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>{{ props.item.address }}</v-list-tile-content>
               </v-list-tile>
               <v-list-tile>
                 <v-list-tile-action>
-                  <v-icon>mdi-email</v-icon>
+                  <v-icon>email</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>{{ props.item.email.join(', ') }}</v-list-tile-content>
               </v-list-tile>
               <v-list-tile>
                 <v-list-tile-action>
-                  <v-icon>mdi-phone</v-icon>
+                  <v-icon>phone</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>{{ props.item.phone.join(', ') }}</v-list-tile-content>
               </v-list-tile>
               <v-list-tile>
                 <v-list-tile-action>
-                  <v-icon>mdi-fax</v-icon>
+                  <v-icon>print</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>{{ props.item.fax && props.item.fax.join() || '-' }}</v-list-tile-content>
               </v-list-tile>

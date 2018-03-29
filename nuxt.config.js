@@ -1,120 +1,109 @@
-var glob = require('glob');
-var path = require('path');
+const pkg = require('./package')
+
 const nodeExternals = require('webpack-node-externals')
 
-const dev = process.env.NODE_ENV !== 'production'
-
-// Enhance Nuxt's generate process by gathering all content files from Netifly CMS
-// automatically and match it to the path of your Nuxt routes.
-// The Nuxt routes are generate by Nuxt automatically based on the pages folder.
-var dynamicRoutes = getDynamicPaths({
-  '/blog': 'blog/posts/*.json',
-  '/member': 'members/*.json'
-});
-
-const nuxtjs = {
-  mode: 'spa',
+module.exports = {
+  analyze: true,
+  mode: 'universal',
+  dev: process.env.NODE_ENV !== 'production',
 
   /*
   ** Headers of the page
   */
   head: {
-    title: 'Asosiasi Pengusaha Engineering Karawang',
-    titleTemplate: '%s - APEK',
+    title: pkg.name.toUpperCase(),
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Asosiasi Pengusaha Engineering Karawang' }
+      { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ]
   },
 
   /*
-  ** Customize the progress bar color
+  ** Customize the progress-bar color
   */
-  loading: { color: '#F44336' },
+  loading: { color: '#212121' },
 
   /*
   ** Global CSS
   */
   css: [
-    '@/assets/app.styl'
+    '@/assets/style/app.styl'
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/vuetify'
+    '@/plugins/vuetify',
+    { src: '~/plugins/typer', ssr: false }
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/pwa',
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    '@nuxtjs/pwa'
   ],
 
   /*
   ** modules configuration
   */
-
-  icon: {
-    iconSrc: 'static/images/uploads/icon.png'
-  },
-  workbox: {
-    runtimeCaching: [
-      {
-        // Should be a regex string. Compiles into new RegExp('https://my-cdn.com/.*')
-        urlPattern: 'https://cdn.jsdelivr.net/.*',
-        // Defaults to `networkFirst` if omitted
-        handler: 'cacheFirst',
-        // Defaults to `GET` if omitted
-        method: 'GET'
-      }
-    ]
-  },
   markdownit: {
     preset: 'default',
     linkify: true,
     breaks: true,
-    injected: true,
-    use: [
-      'markdown-it-container',
-      'markdown-it-attrs'
+    typographer:  false,
+    injected: true
+  },
+  icon: { iconSrc: 'static/images/icon.png'},
+  workbox: {
+    runtimeCaching: [
+      {
+        urlPattern: 'https://fonts.(googleapis|gstatics).com/.*',
+        handler: 'cacheFirst'
+      }
     ]
   },
-
-  /*
-  ** Route config for pre-rendering
-  */
-  generate: {
-    routes: dynamicRoutes
+  meta: {
+    name: pkg.name.toUpperCase(),
+    nativeUI: true,
+    ogHost: process.env.URL ? process.env.URL.replace('https://', '') : 'localhost:3000'
   },
 
   /*
   ** Build configuration
   */
   build: {
+    publicPath: '/rsc/',
     babel: {
       plugins: [
-        ["transform-imports", {
-          "vuetify": {
-            "transform": "vuetify/es5/components/${member}",
-            "preventFullImport": true
+        [
+          'transform-imports',
+          {
+            vuetify: {
+              transform: 'vuetify/es5/components/${member}',
+              preventFullImport: true
+            }
           }
-        }]
+        ]
       ]
     },
+    vendor: ['~/plugins/vuetify.js'],
+    extractCSS: true,
+    cssSourceMap: false,
 
     /*
-    ** Run ESLint on save
+    ** You can extend webpack config here
     */
-    extend(config, { isDev, isClient, isServer }) {
-      if (isDev && isClient) {
+    extend(config, ctx) {
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
@@ -122,42 +111,13 @@ const nuxtjs = {
           exclude: /(node_modules)/
         })
       }
-      if (isServer) {
+      if (ctx.isServer) {
         config.externals = [
           nodeExternals({
-            whitelist: [/^vuetify/]
+            whitelist: [/^vuetify/, /^vue-material-design-icons/]
           })
         ]
       }
     }
   }
 }
-
-/**
- * Create an array of URLs from a list of files
- * @param {*} urlFilepathTable
- */
-function getDynamicPaths(urlFilepathTable) {
-  return [].concat(
-    ...Object.keys(urlFilepathTable).map(url => {
-      var filepathGlob = urlFilepathTable[url];
-      return glob
-        .sync(filepathGlob, { cwd: 'content' })
-        .map(filepath => `${url}/${path.basename(filepath, '.json')}`);
-    })
-  );
-}
-
-if (dev) {
-  nuxtjs.css = [
-    './node_modules/typeface-roboto/index.css',
-    './node_modules/mdi/css/materialdesignicons.css'
-  ].concat(nuxtjs.css)
-} else {
-  nuxtjs.head = nuxtjs.link.concat([
-    { rel: 'stylesheet', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/mdi@2.2.43/css/materialdesignicons.min.css' },
-    { rel: 'stylesheet', type: 'text/css', href: 'https://cdn.jsdelivr.net/npm/typeface-roboto' }
-  ])
-}
-
-module.exports = nuxtjs

@@ -6,7 +6,7 @@
       class="px-0 py-0"
     >
       <progressive-background
-        src="/images/uploads/atom.jpg"
+        src="/images/atom.jpg"
         placeholder="/images/atom@20x.jpg"
         blur.number="30"
         style="height: 98vh"
@@ -37,12 +37,30 @@
               />
             -->
           </v-flex>
+
+          <v-flex style="min-height: 70px">
+            <vue-typer
+              class="white--text"
+              :text=posts
+              :repeat='Infinity'
+              :shuffle='false'
+              initial-action='typing'
+              :pre-type-delay='70'
+              :type-delay='70'
+              :pre-erase-delay='2000'
+              :erase-delay='100'
+              erase-style='backspace'
+              :erase-on-complete='false'
+              caret-animation='phase'
+            />
+          </v-flex>
+
           <v-flex>
             <v-btn
               icon
               @click="$vuetify.goTo('.business-field', {offset: -65})"
             >
-              <v-icon color="white">mdi-chevron-down</v-icon>
+              <v-icon color="white">expand_more</v-icon>
             </v-btn>
           </v-flex>
 
@@ -104,7 +122,6 @@
 <script>
 import ProgressiveBackground from '@/components/background.vue';
 import ProgressiveImage from '@/components/image.vue';
-// import * as easings from 'vuetify/es5/util/easing-patterns';
 
 export default {
   components: {
@@ -128,13 +145,43 @@ export default {
     //   _path: `/blog/${key.replace('.json', '').replace('./', '')}`,
     // }));
 
-    return { posts: [] };
+    return {
+      posts: [
+        'Fabrication',
+        'Machining',
+        'Construction',
+        'M.E. & Maintenance',
+        'Machine Maker',
+        'Automation',
+        'Engineering Consultant',
+        'Technical Supplier',
+        'et cetera.',
+      ],
+    };
   },
 };
 </script>
 
-<style scoped>
+<style>
 .bgy {
   background-image: linear-gradient(-322deg, #000000 8%, #da2b2b 78%);
+}
+
+.vue-typer {
+  font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
+}
+
+.vue-typer .custom.char.typed {
+  color: #607d8b;
+  font-size: 38px;
+}
+.vue-typer .custom.char.selected {
+  color: #607d8b;
+  background-color: transparent;
+  text-decoration: line-through;
+}
+
+.vue-typer .custom.caret {
+  display: none;
 }
 </style>

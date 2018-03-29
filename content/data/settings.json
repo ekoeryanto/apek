@@ -1,23 +1,23 @@
 {
   "menu": [
-    { "icon": "mdi-contacts", "text": "Home", "to": "/", "exact": true },
-    { "icon": "mdi-history", "text": "Products", "to": "/products", "show": false },
-    { "icon": "mdi-content-copy", "text": "Members", "to": "/members" },
+    { "icon": "home", "text": "Home", "to": "/", "exact": true },
+    { "icon": "layers", "text": "Products", "to": "/products", "show": false },
+    { "icon": "people", "text": "Members", "to": "/members" },
     {
-      "icon-alt": "mdi-minus",
-      "icon": "mdi-chevron-down",
+      "icon-alt": "expand_less",
+      "icon": "expand_more",
       "model": false,
       "text": "Profile",
       "children": [
-        { "icon": "mdi-plus", "text": "Secretariat", "to": "/secretariat" },
-        { "icon": "mdi-plus", "text": "Org. Structure", "to": "/structure" },
-        { "icon": "mdi-plus", "text": "Business Field", "to": "/business" },
-        { "icon": "mdi-plus", "text": "Vision and Mission", "to": "/vision-mission" }
+        { "icon": "info_outline", "text": "Secretariat", "to": "/secretariat" },
+        { "icon": "device_hub", "text": "Org. Structure", "to": "/structure" },
+        { "icon": "extension", "text": "Business Field", "to": "/business" },
+        { "icon": "visibility", "text": "Vision and Mission", "to": "/vision-mission" }
       ]
     },
     {
-      "icon-alt": "mdi-minus",
-      "icon": "mdi-chevron-down",
+      "icon-alt": "expand_less",
+      "icon": "expand_more",
       "model": false,
       "text": "Info",
       "show": false,
@@ -27,6 +27,6 @@
         { "text": "Technology" }
       ]
     },
-    { "icon": "mdi-history", "text": "Contact", "to": "/contact" }
+    { "icon": "message", "text": "Contact", "to": "/contact" }
   ]
 }

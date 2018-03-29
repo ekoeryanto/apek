@@ -9,11 +9,8 @@ import {
   VBtn,
   VIcon,
   VGrid,
-  VToolbar,
-  VMenu,
-  transitions,
+  VToolbar
 } from 'vuetify'
-import directives from 'vuetify/es5/directives'
 
 Vue.use(Vuetify, {
   components: {
@@ -25,10 +22,6 @@ Vue.use(Vuetify, {
     VBtn,
     VIcon,
     VGrid,
-    VToolbar,
-    VMenu
-  },
-  transitions,
-  directives,
-
+    VToolbar
+  }
 })

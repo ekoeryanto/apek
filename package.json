@@ -2,13 +2,16 @@
   "name": "apek",
   "version": "1.0.0",
   "description": "Asosiasi Pengusaha Engineering Karawang",
-  "author": "Eko Eryanto <ekoeryanto@gmail.com>",
+  "author": "Eko Eryanto",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ekoeryanto/apek.git"
+  },
   "scripts": {
     "dev": "nuxt",
-    "serve": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "cross-env NODE_ENV=production nuxt generate",
+    "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "lint-staged"
   },
@@ -26,27 +29,23 @@
   "dependencies": {
     "@nuxtjs/markdownit": "^1.2.0",
     "@nuxtjs/pwa": "^2.0.8",
-    "cross-env": "^5.0.5",
-    "markdown-it-attrs": "^1.2.1",
-    "markdown-it-container": "^2.0.0",
-    "mdi": "^2.1.99",
     "nuxt": "^1.0.0",
-    "typeface-roboto": "0.0.54",
-    "vuetify": "^1.0.10"
+    "vue-material-design-icons": "^1.2.1",
+    "vue-typer": "^1.2.0",
+    "vuetify": "^1.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
     "babel-plugin-transform-imports": "^1.5.0",
+    "cross-env": "^5.0.1",
     "eslint": "^4.15.0",
-    "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
     "eslint-plugin-vue": "^4.0.0",
-    "glob": "^7.1.2",
     "husky": "^0.14.3",
     "imagemin-lint-staged": "^0.3.0",
     "lint-staged": "^7.0.0",
     "prettier": "^1.11.1",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2"
+    "stylus-loader": "^3.0.1"
   }
 }

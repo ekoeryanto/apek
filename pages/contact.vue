@@ -12,13 +12,14 @@
       >
 
         <v-flex md6>
-          <form
+          <v-form
+            @submit.prevent="send"
             ref="contact"
             lazy-validation
             name="contact"
             column
             data-netlify="true"
-            action=""
+            netlify-honeypot="bot-field"
             method="post"
           >
             <div style="display: none">
@@ -26,83 +27,99 @@
             </div>
             <v-text-field
               label="Name"
+              name="name"
+              :rules="form.nameRules"
+              v-model="form.name"
+              autofocus
+              autocomplete="off"
               flex
               required
             />
 
             <v-text-field
               label="E-mail"
+              autocomplete="off"
+              name="email"
+              v-model="form.email"
+              :rules="form.emailRules"
               required
             />
 
             <v-text-field
               label="Message"
+              v-model="form.message"
+              :rules="form.messageRules"
+              name="message"
               multi-line
               rows="3"
               counter="160"
               no-resize
               required
             />
+
             <div class="text-xs-right">
               <v-btn
                 v-if="form.name || form.email || form.message || !form.valid"
                 flat
                 @click="clear"
+                type="button"
               >
                 clear
               </v-btn>
               <v-btn
                 :disabled="!form.valid"
-                flat
+                type="submit"
+                dark
               >
-                submit
+                Send
               </v-btn>
             </div>
-          </form>
+          </v-form>
         </v-flex>
 
         <v-flex>
           <v-list style="background: transparent">
             <v-list-tile>
               <v-list-tile-action>
-                <v-icon>mdi-home</v-icon>
+                <v-icon>home</v-icon>
               </v-list-tile-action>
               <v-list-tile-content v-text="address.join(', ')" />
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-action>
-                <v-icon>mdi-email</v-icon>
+                <v-icon>email</v-icon>
               </v-list-tile-action>
               <v-list-tile-content v-text="email.join(', ')" />
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-action>
-                <v-icon>mdi-phone</v-icon>
+                <v-icon>phone</v-icon>
               </v-list-tile-action>
               <v-list-tile-content v-text="phone.join(', ')" />
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-action>
-                <v-icon>mdi-fax</v-icon>
+                <v-icon>print</v-icon>
               </v-list-tile-action>
               <v-list-tile-content v-text="fax.join(', ')" />
             </v-list-tile>
           </v-list>
           <div>
-            <template v-for="network in social">
-              <v-btn
-                :key="network.vendor"
-                :href="network.url"
-                target="_blank"
-                icon
-                flat>
-                <v-icon v-text="network.icon" />
-              </v-btn>
-            </template>
+            <no-ssr>
+              <social-networks :networks="social" btn-class="mx-3" />
+            </no-ssr>
           </div>
         </v-flex>
       </v-layout>
     </v-container>
+    <v-snackbar
+      bottom
+      right
+      v-model="snackbar"
+    >
+      Your message has been sent, thanks!
+      <v-btn flat color="success" @click.native="clear">OK</v-btn>
+    </v-snackbar>
   </div>
 </template>
 
@@ -110,10 +127,14 @@
 const title = 'Contact';
 
 import ApekTitle from '~/components/ApekTitle';
-import { VForm, VTextField } from 'vuetify';
+import { VForm, VTextField, VSnackbar } from 'vuetify';
+import SocialNetworks from '@/components/SocialNetworks';
+import encode from '@/libs/encode';
 
 export default {
   components: {
+    SocialNetworks,
+    VSnackbar,
     ApekTitle,
     VForm,
     VTextField,
@@ -123,6 +144,7 @@ export default {
   }),
   data: () => ({
     title,
+    snackbar: false,
     form: {
       valid: true,
       name: '',
@@ -143,12 +165,26 @@ export default {
     return data;
   },
   methods: {
-    submit() {
+    send() {
       if (this.$refs.contact.validate()) {
-        // Native form submission is not yet supported
+        const { email, name, message } = this.form;
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: encode({ 'form-name': 'contact', email, name, message }),
+        })
+          .then(() => {
+            this.snackbar = true;
+          })
+          .catch(error =>
+            alert(
+              'Unable to send message. Please use an alternative contact, thanks.'
+            )
+          );
       }
     },
     clear() {
+      this.snackbar = false;
       this.$refs.contact.reset();
     },
   },

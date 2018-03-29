@@ -1,12 +1,14 @@
 $color-pack = false;
-
-@import '~vuetify/src/stylus/app.styl'
+@require '~vuetify/src/stylus/app.styl'
 
 .page
   @extend .fade-transition
 
 html
   overflow-y auto
+
+body
+  -webkit-font-smoothing: antialiased
 
 .toolbar__items >
   .btn
