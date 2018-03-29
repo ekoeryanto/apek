@@ -12,6 +12,7 @@ module.exports = {
   */
   head: {
     title: pkg.name.toUpperCase(),
+    titleTemplate: '%s - ' + pkg.name.toUpperCase(),
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
