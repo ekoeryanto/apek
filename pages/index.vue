@@ -6,8 +6,8 @@
       class="px-0 py-0"
     >
       <progressive-background
-        src="/images/atom.jpg"
-        placeholder="/images/atom@20x.jpg"
+        src="/images/cover-andri.jpg"
+        placeholder="/images/cover-andri@20x.jpg"
         blur.number="30"
         style="height: 98vh"
         overlay="linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%)">
@@ -19,7 +19,7 @@
           align
           class="text-xs-center white--text fill-height">
           <v-spacer/>
-          <v-flex>
+          <v-flex v-if="jumbotron.image">
             <img
               :src="jumbotron.image"
               alt="APEK"
