@@ -1,72 +1,6 @@
 <template>
   <div>
-    <v-container
-      fluid
-      fill-height
-      class="px-0 py-0"
-    >
-      <progressive-background
-        src="/images/cover-andri.jpg"
-        placeholder="/images/cover-andri@20x.jpg"
-        blur.number="30"
-        style="height: 98vh"
-        overlay="linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%)">
-        <v-layout
-          column
-          align-center
-          align-content-space-between
-          justify-center
-          align
-          class="text-xs-center white--text fill-height">
-          <v-spacer/>
-          <v-flex v-if="jumbotron.image">
-            <img
-              :src="jumbotron.image"
-              alt="APEK"
-              width="80%"
-            >
-            <div
-              class="title"
-              v-html="$md.render(jumbotron.body)"
-            />
-            <!--
-              <progressive-image
-                :src="jumbotron.image"
-                :placeholder="jumbotron.image"
-                blur.number="30"
-              />
-            -->
-          </v-flex>
-
-          <v-flex style="min-height: 70px">
-            <vue-typer
-              class="white--text"
-              :text=posts
-              :repeat='Infinity'
-              :shuffle='false'
-              initial-action='typing'
-              :pre-type-delay='70'
-              :type-delay='70'
-              :pre-erase-delay='2000'
-              :erase-delay='100'
-              erase-style='backspace'
-              :erase-on-complete='false'
-              caret-animation='phase'
-            />
-          </v-flex>
-
-          <v-flex>
-            <v-btn
-              icon
-              @click="$vuetify.goTo('.business-field', {offset: -65})"
-            >
-              <v-icon color="white">expand_more</v-icon>
-            </v-btn>
-          </v-flex>
-
-        </v-layout>
-      </progressive-background>
-    </v-container>
+    <img src="images/cover-andri.jpg" width="100%">
     <div
       class="business-field bgx"
     >
@@ -120,14 +54,8 @@
 </template>
 
 <script>
-import ProgressiveBackground from '@/components/background.vue';
-import ProgressiveImage from '@/components/image.vue';
-
 export default {
-  components: {
-    ProgressiveBackground,
-    ProgressiveImage,
-  },
+  components: {},
   head() {
     return {
       title: 'Home',
