@@ -4,7 +4,7 @@ const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
   analyze: true,
-  mode: 'universal',
+  mode: 'spa',
   dev: process.env.NODE_ENV !== 'production',
 
   /*
