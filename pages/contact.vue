@@ -14,8 +14,8 @@
         <v-flex sm12 md6>
           <v-form
             @submit.prevent="send"
+            v-model="form.valid"
             ref="contact"
-            lazy-validation
             name="contact"
             column
             data-netlify="true"
@@ -57,17 +57,17 @@
               required
             />
 
-            <vue-recaptcha
-              sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
-              ref="invisibleRecaptcha"
-              @verify="onVerify"
-              @expired="onExpired"
-              size="invisible"
-            />
-
-            <div class="text-xs-right">
+            <v-layout row grid-list-md align-center justify-space-between class="mt-3">
+              <vue-recaptcha
+                sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
+                ref="invisibleRecaptcha"
+                @verify="onVerify"
+                @expired="onExpired"
+                size="invisible"
+                badge="inline"
+              />
               <v-btn
-                v-if="form.name || form.email || form.message || !form.valid"
+                v-if="form.name || form.email || form.message"
                 flat
                 @click="clear"
                 type="button"
@@ -75,13 +75,13 @@
                 clear
               </v-btn>
               <v-btn
-                :disabled="!form.valid"
+                color="secondary"
                 type="submit"
-                dark
+                :disabled="!form.valid"
               >
                 Send
               </v-btn>
-            </div>
+            </v-layout>
           </v-form>
         </v-flex>
 
@@ -166,7 +166,7 @@ export default {
     title,
     snackbar: false,
     form: {
-      valid: true,
+      valid: false,
       name: '',
       nameRules: [v => !!v || 'Name is required'],
       email: '',
