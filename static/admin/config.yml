@@ -18,14 +18,14 @@ collections:
             label: Menu
             widget: list
             fields:
-              - name: show
-                label: Show
-                widget: boolean
-                default: false
               - name: text
                 label: Title
                 widget: string
                 required: true
+              - name: show
+                label: Show
+                widget: boolean
+                default: true
               - name: to
                 label: Path
                 widget: string

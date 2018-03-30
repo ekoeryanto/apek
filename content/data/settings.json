@@ -1,11 +1,12 @@
 {
   "menu": [
-    { "icon": "home", "text": "Home", "to": "/", "exact": true },
+    { "icon": "home", "text": "Home", "to": "/", "exact": true, "show": true },
     { "icon": "layers", "text": "Products", "to": "/products", "show": false },
-    { "icon": "people", "text": "Members", "to": "/members" },
+    { "icon": "people", "text": "Members", "to": "/members", "show": true },
     {
       "icon-alt": "expand_less",
       "icon": "expand_more",
+      "show": true,
       "model": false,
       "text": "Profile",
       "children": [
@@ -27,6 +28,6 @@
         { "text": "Technology" }
       ]
     },
-    { "icon": "message", "text": "Contact", "to": "/contact" }
+    { "icon": "message", "text": "Contact", "to": "/contact", "show": true }
   ]
 }
