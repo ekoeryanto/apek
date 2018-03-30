@@ -56,7 +56,15 @@
               no-resize
               required
             />
-            <div netlify-recaptcha></div>
+
+            <vue-recaptcha
+              sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
+              ref="invisibleRecaptcha"
+              @verify="onVerify"
+              @expired="onExpired"
+              size="invisible"
+            />
+
             <div class="text-xs-right">
               <v-btn
                 v-if="form.name || form.email || form.message || !form.valid"
@@ -131,6 +139,7 @@ const title = 'Contact';
 import ApekTitle from '~/components/ApekTitle';
 import { VForm, VTextField, VSnackbar } from 'vuetify';
 import SocialNetworks from '@/components/SocialNetworks';
+import VueRecaptcha from 'vue-recaptcha';
 import encode from '@/libs/encode';
 
 export default {
@@ -140,9 +149,18 @@ export default {
     ApekTitle,
     VForm,
     VTextField,
+    VueRecaptcha,
   },
   head: () => ({
     title,
+    script: [
+      {
+        src:
+          'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit',
+        async: true,
+        defer: true,
+      },
+    ],
   }),
   data: () => ({
     title,
@@ -167,27 +185,37 @@ export default {
     return data;
   },
   methods: {
+    onVerify: function(uid) {
+      const { email, name, message } = this.form;
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'contact', email, name, message, uid }),
+      })
+        .then(() => {
+          this.snackbar = true;
+        })
+        .catch(error =>
+          alert(
+            'Unable to send message. Please use an alternative contact, thanks.'
+          )
+        );
+    },
+    onExpired: function() {
+      console.log('Expired');
+    },
+    resetRecaptcha() {
+      this.$refs.recaptcha.reset(); // Direct call reset method
+    },
     send() {
       if (this.$refs.contact.validate()) {
-        const { email, name, message } = this.form;
-        fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: encode({ 'form-name': 'contact', email, name, message }),
-        })
-          .then(() => {
-            this.snackbar = true;
-          })
-          .catch(error =>
-            alert(
-              'Unable to send message. Please use an alternative contact, thanks.'
-            )
-          );
+        this.$refs.invisibleRecaptcha.execute();
       }
     },
     clear() {
       this.snackbar = false;
       this.$refs.contact.reset();
+      this.$refs.invisibleRecaptcha.reset();
     },
   },
 };
