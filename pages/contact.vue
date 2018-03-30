@@ -56,7 +56,7 @@
               no-resize
               required
             />
-
+            <div netlify-recaptcha></div>
             <div class="text-xs-right">
               <v-btn
                 v-if="form.name || form.email || form.message || !form.valid"
