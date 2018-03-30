@@ -1,6 +1,12 @@
 <template>
   <div>
-    <img src="images/cover-andri.jpg" width="100%">
+    <v-container
+      fluid
+      fill-height
+      class="px-0 py-0"
+    >
+      <img width="100%" :src="jumbotron.background" alt="headline image">
+    </v-container>
     <div
       class="business-field bgx"
     >
@@ -54,8 +60,14 @@
 </template>
 
 <script>
+import ProgressiveBackground from '@/components/background.vue';
+import ProgressiveImage from '@/components/image.vue';
+
 export default {
-  components: {},
+  components: {
+    ProgressiveBackground,
+    ProgressiveImage,
+  },
   head() {
     return {
       title: 'Home',

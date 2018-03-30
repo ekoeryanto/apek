@@ -80,7 +80,6 @@ collections:
               - name: image
                 label: Image
                 widget: image
-                default: /images/logo.png
               - name: body
                 label: Body
                 widget: markdown
