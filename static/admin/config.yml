@@ -72,7 +72,7 @@ collections:
           - name: carousel
             label: Carousel
             widget: list
-            field:
+            fields:
               - {label: Image, name: image, widget: image}
 
           - name: business
