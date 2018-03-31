@@ -32,10 +32,10 @@ collections:
                 required: true
               - name: icon
                 label: Icon
-                widget: string
+                widget: icon
               - name: icon-alt
                 label: Alternative Icon
-                widget: string
+                widget: icon
               - name: model
                 label: Expanded
                 widget: boolean
@@ -56,7 +56,7 @@ collections:
                     required: true
                   - name: icon
                     label: Icon
-                    widget: string
+                    widget: icon
                   - name: exact
                     label: Exact Path
                     widget: boolean
@@ -87,7 +87,7 @@ collections:
                 widget: string
               - label: Icon
                 name: icon
-                widget: string
+                widget: icon
 
           - name: sponsor
             label: Sponsors
@@ -192,7 +192,7 @@ collections:
                 widget: string
               - name: icon
                 label: Icon
-                widget: string
+                widget: icon
 
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
