@@ -69,20 +69,15 @@ collections:
         label: Home
         file: content/pages/home.json
         fields:
-          - name: jumbotron
-            label: Jumbotron
-            widget: object
-            fields:
-              - name: background
-                label: Background
+          - name: carousel
+            label: Carousel
+            description: Slide images
+            widget: list
+            field:
+              - label: Image
+                name: image
                 widget: image
-                default: /images/atom.jpg
-              - name: image
-                label: Image
-                widget: image
-              - name: body
-                label: Body
-                widget: markdown
+
           - name: business
             label: Business Fields
             widget: list
@@ -93,6 +88,7 @@ collections:
               - label: Icon
                 name: icon
                 widget: string
+
           - name: sponsor
             label: Sponsors
             widget: list

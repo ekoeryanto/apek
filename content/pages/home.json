@@ -1,4 +1,9 @@
 {
+  "carousel": [
+    {
+      "image": "/images/cover-andri.jpg"
+    }
+  ],
   "jumbotron": {
     "background": "/images/cover-andri.jpg",
     "image": "",
@@ -50,6 +55,18 @@
     {
       "title": "perindustrian",
       "image": "/images/perindustrian.png"
+    },
+    {
+      "title": "Kab. Karawang",
+      "image": "/images/karawangkab.png"
+    },
+    {
+      "title": "Jawa Barat",
+      "image": "/images/jabar.png"
+    },
+    {
+      "title": "ASEAN",
+      "image": "/images/asean.png"
     }
   ]
 }
