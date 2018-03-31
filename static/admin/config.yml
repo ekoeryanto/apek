@@ -71,12 +71,9 @@ collections:
         fields:
           - name: carousel
             label: Carousel
-            description: Slide images
             widget: list
             field:
-              - label: Image
-                name: image
-                widget: image
+              - {label: Image, name: image, widget: image}
 
           - name: business
             label: Business Fields
