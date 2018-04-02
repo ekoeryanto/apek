@@ -111,15 +111,41 @@ collections:
               - {name: url, label: URL, widget: string}
               - {name: icon, label: Icon, widget: icon}
 
-  - name: blog # Used in routes, e.g., /admin/collections/blog
-    label: Blog # Used in the UI
-    folder: content/blog/posts # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  - name: activity
+    label: Activities
+    label_singular: Activity
+    folder: content/blog/posts/activities
+    create: true
+    slug: "{{slug}}"
     format: 'json'
     fields: # The fields for each document, usually in front matter
       - {label: Title, name: title, widget: string}
-      - {label: Category, name: category, widget: list}
+      - {label: Publish Date, name: date, widget: date}
+      - {label: Featured Image, name: thumbnail, widget: image, required: false}
+      - {label: Body, name: body, widget: markdown}
+
+  - name: announcement
+    label: Announcements
+    label_singular: Announcement
+    folder: content/blog/posts/announcements
+    create: true
+    slug: "{{slug}}"
+    format: 'json'
+    fields: # The fields for each document, usually in front matter
+      - {label: Title, name: title, widget: string}
+      - {label: Publish Date, name: date, widget: date}
+      - {label: Featured Image, name: thumbnail, widget: image, required: false}
+      - {label: Body, name: body, widget: markdown}
+
+  - name: technology
+    label: Technologies
+    label_singular: Technology
+    folder: content/blog/posts/technologies
+    create: true
+    slug: "{{slug}}"
+    format: 'json'
+    fields: # The fields for each document, usually in front matter
+      - {label: Title, name: title, widget: string}
       - {label: Publish Date, name: date, widget: date}
       - {label: Featured Image, name: thumbnail, widget: image, required: false}
       - {label: Body, name: body, widget: markdown}

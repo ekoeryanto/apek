@@ -12,15 +12,20 @@ export default {
       title: this.title,
     };
   },
-  async asyncData({ params }) {
+  async asyncData({ params, error }) {
     // const postPromise = process.BROWSER_BUILD
     //   ? import('~/content/blog/posts/' + params.slug + '.json')
     //   : Promise.resolve(
     //       require('~/content/blog/posts/' + params.slug + '.json')
     //     );
 
-    let post = await import('~/content/blog/posts/' + params.slug + '.json');
-    return post;
+    try {
+      return await import('~/content/blog/posts/activity/' +
+        params.slug +
+        '.json');
+    } catch (e) {
+      error({ statusCode: 404, message: 'Post not found.' });
+    }
   },
 };
 </script>

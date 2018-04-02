@@ -1,6 +1,14 @@
+const glob = require('glob');
+const path = require('path');
 const pkg = require('./package')
 
 const nodeExternals = require('webpack-node-externals')
+
+const dynamicRoutes = getDynamicPaths({
+  '/announcement': 'blog/posts/announcement/*.json',
+  '/activity': 'blog/posts/activity/*.json',
+  '/technology': 'blog/posts/technology/*.json',
+});
 
 module.exports = {
   analyze: true,
@@ -28,6 +36,13 @@ module.exports = {
   ** Customize the progress-bar color
   */
   loading: { color: '#212121' },
+
+  /*
+  ** Route config for pre-rendering
+  */
+  generate: {
+    routes: dynamicRoutes
+  },
 
   /*
   ** Global CSS
@@ -121,4 +136,19 @@ module.exports = {
       }
     }
   }
+}
+
+/**
+ * Create an array of URLs from a list of files
+ * @param {*} urlFilepathTable
+ */
+function getDynamicPaths(urlFilepathTable, cwd = 'content') {
+  return [].concat(
+    ...Object.keys(urlFilepathTable).map(url => {
+      const filepathGlob = urlFilepathTable[url];
+      return glob
+        .sync(filepathGlob, { cwd })
+        .map(filepath => `${url}/${path.basename(filepath, '.json')}`);
+    })
+  );
 }
