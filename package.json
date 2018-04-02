@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@nuxtjs/markdownit": "^1.2.0",
+    "@nuxtjs/markdownit-loader": "^1.1.1",
     "@nuxtjs/pwa": "^2.0.8",
     "nuxt": "^1.0.0",
     "vue-material-design-icons": "^1.2.1",

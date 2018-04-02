@@ -28,7 +28,8 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
+      { rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css"}
     ]
   },
 
@@ -74,7 +75,7 @@ module.exports = {
     preset: 'default',
     linkify: true,
     breaks: true,
-    typographer:  false,
+    typographer:  true,
     injected: true
   },
   icon: { iconSrc: 'static/images/icon.png'},

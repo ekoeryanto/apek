@@ -1,8 +1,8 @@
 <template>
-  <article>
+  <v-container>
     <h1>{{ title }}</h1>
-    <div v-html="$md.render(body)" />
-  </article>
+    <div v-html="$md.render(body)" class="markdown-body"/>
+  </v-container>
 </template>
 
 <script>
