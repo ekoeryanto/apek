@@ -21,7 +21,7 @@
       "icon": "expand_more",
       "model": false,
       "text": "Info",
-      "show": true,
+      "show": false,
       "children": [
         { "text": "Announcements","to": "/announcements" },
         { "text": "Activities", "to": "/activities" },
