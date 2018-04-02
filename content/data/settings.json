@@ -23,9 +23,9 @@
       "text": "Info",
       "show": true,
       "children": [
-        { "text": "Announcement" },
-        { "text": "Activity" },
-        { "text": "Technology" }
+        { "text": "Announcements","to": "/announcements" },
+        { "text": "Activities", "to": "/activities" },
+        { "text": "Technologies", "to": "/technologies" }
       ]
     },
     { "icon": "message", "text": "Contact", "to": "/contact", "show": true }

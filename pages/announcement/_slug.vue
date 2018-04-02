@@ -20,7 +20,7 @@ export default {
     //     );
 
     try {
-      return await import('~/content/blog/posts/activity/' +
+      return await import('~/content/blog/posts/announcements/' +
         params.slug +
         '.json');
     } catch (e) {
