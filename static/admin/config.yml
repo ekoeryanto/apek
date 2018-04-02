@@ -127,7 +127,7 @@ collections:
     label: Member
     folder: content/members # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: {{slug}} # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     format: 'json'
     fields:
       - {label: Company, name: title, widget: string}
