@@ -139,10 +139,10 @@ collections:
       - {label: Fax, name: fax, widget: list, required: false}
       - {label: Registered Date, name: registered, widget: date, required: false}
       - {label: Tumbnail Image, name: thumbnail, widget: image, required: false}
-      - label: Product Images
+      - label: Products
         name: products
         widget: list
         required: false
         field:
-          - {label: product, name: product, widget: list}
+          - {label: product, name: product, widget: image}
       - {label: Detail, name: detail, widget: markdown, required: false}
