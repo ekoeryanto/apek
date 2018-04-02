@@ -5,9 +5,9 @@ const pkg = require('./package')
 const nodeExternals = require('webpack-node-externals')
 
 const dynamicRoutes = getDynamicPaths({
-  '/announcement': 'blog/posts/announcement/*.json',
-  '/activity': 'blog/posts/activity/*.json',
-  '/technology': 'blog/posts/technology/*.json',
+  '/announcement': 'blog/posts/announcements/*.json',
+  '/activity': 'blog/posts/activities/*.json',
+  '/technology': 'blog/posts/technologies/*.json',
 });
 
 module.exports = {
