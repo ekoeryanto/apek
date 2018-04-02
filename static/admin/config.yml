@@ -143,6 +143,8 @@ collections:
         name: products
         widget: list
         required: false
-        field:
-          - {label: product, name: product, widget: image}
+        fields:
+          - {label: Name, name: name, widget: string}
+          - {label: Image, name: image, widget: image}
+          - {label: Description, name: description, widget: text}
       - {label: Detail, name: detail, widget: markdown, required: false}
