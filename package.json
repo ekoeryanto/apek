@@ -31,6 +31,7 @@
     "@nuxtjs/markdownit-loader": "^1.1.1",
     "@nuxtjs/pwa": "^2.0.8",
     "nuxt": "^1.0.0",
+    "quasar-extras": "0.0.8",
     "vue-material-design-icons": "^1.2.1",
     "vue-recaptcha": "^1.1.0",
     "vue-typer": "^1.2.0",
