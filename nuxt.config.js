@@ -85,6 +85,10 @@ module.exports = {
       {
         urlPattern: 'https://fonts.(googleapis|gstatics).com/.*',
         handler: 'cacheFirst'
+      },
+      {
+        urlPattern: 'https://cdnjs.cloudflare.com/.*',
+        handler: 'cacheFirst'
       }
     ]
   },
