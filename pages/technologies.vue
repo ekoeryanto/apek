@@ -24,7 +24,6 @@ export default {
       ...context(key),
       _path: `/technology/${key.replace('.json', '').replace('./', '')}`,
     }));
-    console.log(posts);
     return { posts };
   },
 };

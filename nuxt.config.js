@@ -11,8 +11,7 @@ const dynamicRoutes = getDynamicPaths({
 });
 
 module.exports = {
-  analyze: true,
-  mode: 'spa',
+  mode: 'universal',
   dev: process.env.NODE_ENV !== 'production',
 
   /*
