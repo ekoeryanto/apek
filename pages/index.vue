@@ -120,23 +120,6 @@ export default {
   background-image: linear-gradient(-322deg, #000000 8%, #da2b2b 78%);
 }
 
-.vue-typer {
-  font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
-}
-
-.vue-typer .custom.char.typed {
-  color: #607d8b;
-  font-size: 38px;
-}
-.vue-typer .custom.char.selected {
-  color: #607d8b;
-  background-color: transparent;
-  text-decoration: line-through;
-}
-
-.vue-typer .custom.caret {
-  display: none;
-}
 .jumbotron__image {
   width: 100%;
   height: 100%;
