@@ -1,0 +1,4 @@
+[[headers]]
+  for = "/rsc/*"
+  [headers.values]
+    Cache-Control = "max-age=172800, public, must-revalidate"
