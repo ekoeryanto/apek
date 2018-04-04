@@ -1,14 +1,14 @@
 [[headers]]
 for = "/*.js"
 [headers.values]
-Cache-Control = "public, max-age=31536000, must-revalidate"
+Cache-Control = "public, max-age=30672000"
 
 [[headers]]
 for = "/rsc/*"
 [headers.values]
-Cache-Control = "public, max-age=31536000, must-revalidate"
+Cache-Control = "public, max-age=30672000"
 
 [[headers]]
 for = "/images/*"
 [headers.values]
-Cache-Control = "public, max-age=31536000, must-revalidate"
+Cache-Control = "public, max-age=30672000"
