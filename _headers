@@ -1,7 +1,9 @@
 [[headers]]
-  for = "/rsc/*"
-  [headers.values]
-    Cache-Control = "max-age=172800, public, must-revalidate"
-  for = "/images/*"
-  [headers.values]
-    Cache-Control = "max-age=172800, public, must-revalidate"
+for = "/rsc/*"
+[headers.values]
+Cache-Control = "max-age=172800, public, must-revalidate"
+
+[[headers]]
+for = "/images/*"
+[headers.values]
+Cache-Control = "max-age=172800, public, must-revalidate"
