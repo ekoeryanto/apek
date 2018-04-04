@@ -1,11 +1,11 @@
 {
   "carousel": [
     {
-      "image": "/images/cover-andri.jpg"
+      "image": "/images/cover-andri@1080x.jpg"
     }
   ],
   "jumbotron": {
-    "background": "/images/cover-andri.jpg",
+    "background": "/images/cover-andri@1080x.jpg",
     "image": "",
     "body": ""
   },
