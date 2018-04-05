@@ -10,6 +10,7 @@
       </v-carousel>
     </v-container>
     <div
+      v-cloak
       v-if="$data.business"
       class="business-field bgx"
     >
