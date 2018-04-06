@@ -115,7 +115,6 @@ module.exports = {
         ]
       ]
     },
-    vendor: ['~/plugins/vuetify.js'],
     extractCSS: true,
     cssSourceMap: false,
 
