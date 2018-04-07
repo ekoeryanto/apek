@@ -4,7 +4,7 @@
     <h2>{{ address }}</h2>
     <div
       v-if="$data.body || null"
-      v-html="$md.render(body)" />
+      v-html="$marked(body)" />
   </article>
 </template>
 

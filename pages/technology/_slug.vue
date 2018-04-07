@@ -2,7 +2,7 @@
   <v-container>
     <h1>{{ title }}</h1>
     <img v-if="$data.thumbnail" :src="thumbnail" :alt="title">
-    <div v-html="$md.render(body)" class="markdown-body"/>
+    <div v-html="$marked(body)" class="markdown-body"/>
   </v-container>
 </template>
 
