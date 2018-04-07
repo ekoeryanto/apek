@@ -48,8 +48,6 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    // './node_modules/quasar-extras/material-icons/material-icons.css',
-    // './node_modules/quasar-extras/roboto-font/roboto-font.css',
     '@/assets/style/app.styl'
   ],
 
@@ -71,13 +69,6 @@ module.exports = {
   /*
   ** modules configuration
   */
-  markdownit: {
-    preset: 'default',
-    linkify: true,
-    breaks: true,
-    typographer:  true,
-    injected: true
-  },
   icon: { iconSrc: 'static/images/icon.png'},
   workbox: {
     runtimeCaching: [
