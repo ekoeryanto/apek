@@ -63,12 +63,26 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/pwa'
+    'nuxt-fontawesome',
+    '@nuxtjs/pwa',
   ],
 
   /*
   ** modules configuration
   */
+  fontawesome: {
+    component: 'fa',
+    imports: [
+      {
+        set: '@fortawesome/fontawesome-free-brands',
+        icons: ['faFacebook', 'faTwitter', 'faInstagram', 'faGooglePlus']
+      },
+      {
+        set: '@fortawesome/fontawesome-free-solid',
+        icons: ['faFax', 'faPhone', 'faBuilding', 'faEnvelope']
+      }
+    ]
+  },
   icon: { iconSrc: 'static/images/icon.png'},
   workbox: {
     runtimeCaching: [
@@ -114,6 +128,8 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+      config.resolve.alias['@fortawesome/fontawesome-free-brands$'] = '@fortawesome/fontawesome-free-brands/shakable.es.js'
+      config.resolve.alias['@fortawesome/fontawesome-free-solid$'] = '@fortawesome/fontawesome-free-solid/shakable.es.js'
       if (ctx.isDev) {
         config.module.rules.push({
           test: /\.(gif|jpe?g|png|svg|tiff|webp)$/,
@@ -146,7 +162,7 @@ module.exports = {
       if (ctx.isServer) {
         config.externals = [
           nodeExternals({
-            whitelist: [/^vuetify/, /^vue-material-design-icons/]
+            whitelist: [/^vuetify/]
           })
         ]
       }

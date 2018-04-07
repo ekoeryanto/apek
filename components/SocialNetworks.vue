@@ -9,22 +9,29 @@
         icon
         class=""
         flat>
-        <twitter-icon
+        <fa
           v-if="network.vendor === 'Twitter'"
-          fill-color="#2196F3"
+          :icon="['fab', 'twitter']"
+          :size="iconSize"
+          style="color: #2196F3"
         />
-        <facebook-icon
+        <fa
           v-else-if="network.vendor === 'Facebook'"
-          fill-color="#3F51B5"
+          :icon="['fab', 'facebook']"
+          style="color: #3F51B5"
+          :size="iconSize"
         />
-        <instagram-icon
+        <fa
           v-else-if="network.vendor === 'Instagram'"
-          fill-color="#6A1B9A"
+          :icon="['fab', 'instagram']"
+          :size="iconSize"
+          style="color: #6A1B9A"
         />
-        <google-plus-icon
+        <fa
           v-else-if="network.vendor === 'Google Plus'"
-          class="red--text"
-          fill-color="#F44336"
+          :icon="['fab', 'google-plus']"
+          :size="iconSize"
+          style="color: #F44336"
         />
       </a>
     </template>
@@ -33,17 +40,7 @@
 
 
 <script>
-import FacebookIcon from 'vue-material-design-icons/facebook';
-import InstagramIcon from 'vue-material-design-icons/instagram';
-import TwitterIcon from 'vue-material-design-icons/twitter';
-import GooglePlusIcon from 'vue-material-design-icons/google-plus';
 export default {
-  components: {
-    FacebookIcon,
-    InstagramIcon,
-    TwitterIcon,
-    GooglePlusIcon,
-  },
   props: {
     networks: {
       type: Array,
@@ -52,6 +49,11 @@ export default {
     btnClass: {
       type: String,
       required: false,
+    },
+    iconSize: {
+      type: String,
+      required: false,
+      default: 'lg',
     },
   },
 };

@@ -89,25 +89,26 @@
           <v-list style="background: transparent">
             <v-list-tile>
               <v-list-tile-action>
-                <v-icon>email</v-icon>
+                <!-- <v-icon>email</v-icon> -->
+                <fa :icon="['fas', 'envelope']" size="lg"/>
               </v-list-tile-action>
               <v-list-tile-content v-text="email.join(', ')" />
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-action>
-                <v-icon>phone</v-icon>
+                <fa :icon="['fas', 'phone']" size="lg" />
               </v-list-tile-action>
               <v-list-tile-content v-text="phone.join(', ')" />
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-action>
-                <v-icon>print</v-icon>
+                <fa :icon="['fas', 'fax']" size="lg" />
               </v-list-tile-action>
               <v-list-tile-content v-text="fax.join(', ')" />
             </v-list-tile>
             <v-list-tile>
               <v-list-tile-action>
-                <v-icon>home</v-icon>
+                <fa :icon="['fas', 'building']" size="lg" />
               </v-list-tile-action>
               <v-list-tile-content>
                 <v-list-tile-title v-text="address" />
@@ -117,7 +118,7 @@
           </v-list>
 
           <no-ssr class="mt-4">
-            <social-networks :networks="social" btn-class="mx-3" />
+            <social-networks :networks="social" btn-class="mx-3" icon-size="2x"/>
           </no-ssr>
         </v-flex>
       </v-layout>
