@@ -123,14 +123,34 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
+      if (ctx.isDev) {
         config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
+          test: /\.(gif|jpe?g|png|svg|tiff|webp)$/,
+          use: [
+            {
+              loader: 'image-process-loader',
+              options: {
+                jpeg: {
+                  progressive: true,
+                  blur: true
+                },
+                png: {
+                  progressive: true,
+                  blur: true
+                }
+              }
+            }
+          ]
         })
+        // Run ESLint on save
+        if (ctx.isClient) {
+          config.module.rules.push({
+            enforce: 'pre',
+            test: /\.(js|vue)$/,
+            loader: 'eslint-loader',
+            exclude: /(node_modules)/
+          })
+        }
       }
       if (ctx.isServer) {
         config.externals = [
