@@ -36,6 +36,11 @@ module.exports = {
   ** Customize the progress-bar color
   */
   loading: { color: '#212121' },
+  loadingIndicator: {
+    name: 'circle',
+    color: '#3B8070',
+    background: 'red'
+  },
 
   /*
   ** Route config for pre-rendering
