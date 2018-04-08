@@ -22,6 +22,8 @@
       "git add"
     ],
     "*.{png,jpeg,jpg,gif,svg}": [
+      "node ./thumbnail.js",
+      "git add",
       "imagemin-lint-staged",
       "git add"
     ]
