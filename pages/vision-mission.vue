@@ -24,9 +24,8 @@ export default {
   data: () => ({
     title,
   }),
-  async asyncData() {
-    const data = await import('~/content/pages/vision-mission.json');
-    return data;
+  asyncData() {
+    return import('~/content/pages/vision-mission.json');
   },
 };
 </script>

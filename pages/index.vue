@@ -60,7 +60,6 @@
                 :title="b.title"
                 height="80px"
               >
-              <!-- <div class="title my-4 white--text">{{ b.title }}</div> -->
             </v-flex>
           </v-layout>
         </template>
@@ -70,15 +69,11 @@
 </template>
 
 <script>
-import ProgressiveBackground from '@/components/background.vue';
-import ProgressiveImage from '@/components/image.vue';
 import VCarousel from 'vuetify/es5/components/VCarousel/VCarousel';
 import VCarouselItem from 'vuetify/es5/components/VCarousel/VCarouselItem';
 
 export default {
   components: {
-    ProgressiveBackground,
-    ProgressiveImage,
     VCarousel,
     VCarouselItem,
   },
@@ -87,18 +82,10 @@ export default {
       title: 'Home',
     };
   },
-  async asyncData() {
-    return await import('~/content/pages/home.json');
+  asyncData() {
+    return import('~/content/pages/home.json');
   },
   data() {
-    // Using webpacks context to gather all files from a folder
-    // const context = require.context('~/content/blog/posts/', false, /\.json$/);
-
-    // const posts = context.keys().map(key => ({
-    //   ...context(key),
-    //   _path: `/blog/${key.replace('.json', '').replace('./', '')}`,
-    // }));
-
     return {
       posts: [
         'Fabrication',

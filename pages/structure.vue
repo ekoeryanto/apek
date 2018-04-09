@@ -21,12 +21,11 @@ export default {
   head: () => ({
     title,
   }),
+  asyncData() {
+    return import('~/content/pages/structure.json');
+  },
   data: () => ({
     title,
   }),
-  async asyncData() {
-    const data = await import('~/content/pages/structure.json');
-    return data;
-  },
 };
 </script>

@@ -29,7 +29,7 @@ export default {
     VDataIterator,
     VDivider,
   },
-  data() {
+  asyncData() {
     const context = require.context(
       '~/content/blog/posts/announcements/',
       false,

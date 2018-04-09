@@ -160,11 +160,11 @@ export default {
           'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit',
         async: true,
         defer: true,
+        body: true,
       },
     ],
   }),
   data: () => ({
-    title,
     snackbar: false,
     form: {
       valid: false,
@@ -181,9 +181,8 @@ export default {
       messageRules: [v => !!v || 'Message is required'],
     },
   }),
-  async asyncData() {
-    const data = await import('~/content/pages/contact.json');
-    return data;
+  asyncData() {
+    return import('~/content/pages/contact.json');
   },
   methods: {
     onVerify: function(uid) {

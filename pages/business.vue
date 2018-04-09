@@ -21,12 +21,8 @@ export default {
   head: () => ({
     title,
   }),
-  data: () => ({
-    title,
-  }),
-  async asyncData() {
-    const data = await import('~/content/pages/business.json');
-    return data;
+  asyncData() {
+    return import('~/content/pages/business.json');
   },
 };
 </script>

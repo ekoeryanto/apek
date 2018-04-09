@@ -19,9 +19,8 @@ export default {
   data: () => ({
     title,
   }),
-  async asyncData() {
-    const data = await import('~/content/pages/secretariat.json');
-    return data;
+  asyncData() {
+    return import('~/content/pages/secretariat.json');
   },
 };
 </script>

@@ -76,17 +76,17 @@ export default {
   head: () => ({
     title,
   }),
-  data() {
-    // Using webpacks context to gather all files from a folder
+  asyncData() {
     const context = require.context('~/content/members/', false, /\.json$/);
 
     const members = context.keys().map(key => ({
       ...context(key),
       _path: `/member/${key.replace('.json', '').replace('./', '')}`,
     }));
-
+    return { members };
+  },
+  data() {
     return {
-      members,
       title,
       rowsPerPageItems: [4, 8, 12],
       pagination: {
