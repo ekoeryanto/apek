@@ -1,6 +1,7 @@
 const glob = require('glob');
 const path = require('path');
 const pkg = require('./package')
+const _ = require('lodash');
 
 const nodeExternals = require('webpack-node-externals')
 
@@ -9,6 +10,19 @@ const dynamicRoutes = getDynamicPaths({
   '/activity': 'blog/posts/activities/*.json',
   '/technology': 'blog/posts/technologies/*.json',
 });
+
+const brandIcons = _.uniq(
+  require('./content/pages/contact.json')
+  .social
+    .map(i => _.camelCase(`fa ${i.icon}`))
+)
+
+const solidIcons = require('./content/pages/home.json')
+  .business
+  .map(i => _.camelCase(`fa ${i.icon}`))
+  .concat(['faFax', 'faPhone', 'faBuilding', 'faEnvelope', 'faIndustry'])
+
+
 
 module.exports = {
   mode: 'universal',
@@ -27,9 +41,8 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: "preload", as: 'style', href: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"},
-      { rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css"},
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"},
+      { rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css"},
     ]
   },
 
@@ -81,11 +94,11 @@ module.exports = {
     imports: [
       {
         set: '@fortawesome/fontawesome-free-brands',
-        icons: ['faFacebook', 'faTwitter', 'faInstagram', 'faGooglePlus']
+        icons: _.uniq(brandIcons)
       },
       {
         set: '@fortawesome/fontawesome-free-solid',
-        icons: ['faFax', 'faPhone', 'faBuilding', 'faEnvelope']
+        icons: _.uniq(solidIcons)
       }
     ]
   },

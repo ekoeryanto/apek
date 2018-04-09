@@ -12,31 +12,31 @@
   "business": [
     {
       "title": "Mesin Produksi",
-      "icon": "rv_hookup"
+      "icon": "industry"
     },
     {
       "title": "Spare-part Industri",
-      "icon": "settings"
+      "icon": "cogs"
     },
     {
       "title": "Alat Kerja Pabrik",
-      "icon": "layers"
+      "icon": "dolly-flatbed"
     },
     {
       "title": "Sarana Pabrik",
-      "icon": "domain"
+      "icon": "boxes"
     },
     {
       "title": "Construction & Civil",
-      "icon": "streetview"
+      "icon": "people-carry"
     },
     {
       "title": "Mechanical Electrical",
-      "icon": "ev_station"
+      "icon": "bolt"
     },
     {
       "title": "Technical Supplier",
-      "icon": "nature_people"
+      "icon": "diagnoses"
     }
   ],
   "sponsor": [

@@ -111,6 +111,7 @@ collections:
               - {name: vendor, label: Vendor, widget: string}
               - {name: url, label: URL, widget: string}
               - {name: icon, label: Icon, widget: icon}
+              - {name: color, label: Color, widget: string}
 
   - name: activity
     label: Activities

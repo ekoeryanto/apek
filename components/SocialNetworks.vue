@@ -10,28 +10,9 @@
         class=""
         flat>
         <fa
-          v-if="network.vendor === 'Twitter'"
-          :icon="['fab', 'twitter']"
+          :icon="['fab', network.icon]"
           :size="iconSize"
-          style="color: #2196F3"
-        />
-        <fa
-          v-else-if="network.vendor === 'Facebook'"
-          :icon="['fab', 'facebook']"
-          style="color: #3F51B5"
-          :size="iconSize"
-        />
-        <fa
-          v-else-if="network.vendor === 'Instagram'"
-          :icon="['fab', 'instagram']"
-          :size="iconSize"
-          style="color: #6A1B9A"
-        />
-        <fa
-          v-else-if="network.vendor === 'Google Plus'"
-          :icon="['fab', 'google-plus']"
-          :size="iconSize"
-          style="color: #F44336"
+          :style="{color: network.color}"
         />
       </a>
     </template>
