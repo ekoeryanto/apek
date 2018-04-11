@@ -19,7 +19,7 @@
     <v-content>
       <nuxt />
     </v-content>
-    <v-footer dark>
+    <v-footer dark height="auto">
       <v-layout
         row
         class="px-4"
@@ -27,7 +27,7 @@
         align-center
       >
         <v-flex>
-          &copy; {{ title }} {{ currentYear }} {{dark}}
+          &copy; {{ title }} {{ currentYear }}
         </v-flex>
 
         <v-flex class="text-xs-right">
