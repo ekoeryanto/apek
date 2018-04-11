@@ -14,16 +14,10 @@ export default {
     };
   },
   async asyncData({ params, error }) {
-    // const postPromise = process.BROWSER_BUILD
-    //   ? import('~/content/blog/posts/' + params.slug + '.json')
-    //   : Promise.resolve(
-    //       require('~/content/blog/posts/' + params.slug + '.json')
-    //     );
-
     try {
-      return await import('~/content/blog/posts/activities/' +
-        params.slug +
-        '.json');
+      return await import(`~/content/blog/posts/activities/${
+        params.activity
+      }.json`);
     } catch (e) {
       error({ statusCode: 404, message: 'Post not found.' });
     }

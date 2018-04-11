@@ -9,7 +9,7 @@
 <script>
 export default {
   async asyncData({ params }) {
-    let member = await import('~/content/members/' + params.slug + '.json');
+    let member = await import('~/content/members/' + params.member + '.json');
     return member;
   },
 };
