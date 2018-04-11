@@ -4,12 +4,22 @@
     <v-container
       grid-list-md
     >
+      <v-text-field
+          append-icon="search"
+          label="Search"
+          single-line
+          hide-details
+          v-model="search"
+          class="mb-3"
+      />
+
       <v-data-iterator
+        :search="search"
         :items="members"
+        item-key="title"
         content-tag="v-layout"
-        prev-icon="mdi-chevron-left"
-        next-icon="mdi-chevron-right"
-        hide-actions
+        :rows-per-page-items="rowsPerPageItems"
+        :pagination.sync="pagination"
         row
         wrap
       >
@@ -19,8 +29,12 @@
           sm12
           md6
         >
-          <v-card>
-            <v-card-title><h4>{{ props.item.title }}</h4></v-card-title>
+          <v-card tile ripple nuxt :to="props.item._path" hover>
+            <v-card-title>
+              <h4>
+                {{ props.item.title }}
+              </h4>
+            </v-card-title>
             <v-divider />
             <v-list dense>
               <v-list-tile>
@@ -62,36 +76,40 @@
 </template>
 
 <script>
-import { VDataIterator, VDivider } from 'vuetify';
+import { VDataIterator, VDivider, VTextField } from 'vuetify';
 
-const title = 'Members';
 import ApekTitle from '~/components/ApekTitle';
 
 export default {
   components: {
     ApekTitle,
+    VTextField,
     VDataIterator,
     VDivider,
   },
-  head: () => ({
-    title,
-  }),
   asyncData() {
+    return import(`~/content/pages/members.json`);
+  },
+  data() {
     const context = require.context('~/content/members/', false, /\.json$/);
 
     const members = context.keys().map(key => ({
       ...context(key),
       _path: `/member/${key.replace('.json', '').replace('./', '')}`,
     }));
-    return { members };
-  },
-  data() {
+
     return {
-      title,
-      rowsPerPageItems: [4, 8, 12],
+      members,
+      search: '',
+      rowsPerPageItems: [{ text: 'All', value: -1 }, 2, 4, 8, 16, 20],
       pagination: {
-        rowsPerPage: 4,
+        rowsPerPage: 2,
       },
+    };
+  },
+  head() {
+    return {
+      title: this.title,
     };
   },
 };
