@@ -29,14 +29,10 @@
               v-for="b in business"
               :key="b.title"
               md3
+              xs12
               class="my-3"
             >
               <fa :icon="['fas', b.icon]" class="white--text" size="6x"/>
-              <!-- <v-icon
-                dark
-                size="100px"
-                v-text="b.icon"
-              /> -->
               <div class="title my-4 white--text">{{ b.title }}</div>
             </v-flex>
           </v-layout>
