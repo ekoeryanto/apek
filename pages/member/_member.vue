@@ -6,7 +6,7 @@
         <v-flex xs12 sm12 md10>
           <img :src="thumbnail" :alt="title" width="100%">
         </v-flex>
-        <v-flex v-if="$data.body" v-html="$marked($data.body)" class="markdown-body body-1 color-inherit" />
+        <v-flex v-if="$data.detail" v-html="$marked($data.detail)" class="markdown-body body-1 color-inherit" />
       </v-layout>
 
     </v-container>
