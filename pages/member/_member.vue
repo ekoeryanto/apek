@@ -1,16 +1,33 @@
 <template>
-  <v-container>
-    <h1>{{ title }}</h1>
-    <h2>{{ address }}</h2>
-    <div v-if="$data.body" v-html="$marked($data.body)" class="markdown-body body-1 color-inherit" />
-  </v-container>
+  <div>
+    <apek-title :title="title" :subtitle="business.join(', ')" />
+    <v-container grid-list-md>
+      <v-layout row wrap>
+        <v-flex xs12 sm12 md10>
+          <img :src="thumbnail" :alt="title" width="100%">
+        </v-flex>
+        <v-flex v-if="$data.body" v-html="$marked($data.body)" class="markdown-body body-1 color-inherit" />
+      </v-layout>
+
+    </v-container>
+  </div>
 </template>
 
 <script>
+import ApekTitle from '~/components/ApekTitle';
+
 export default {
+  components: {
+    ApekTitle,
+  },
   async asyncData({ params }) {
     let member = await import('~/content/members/' + params.member + '.json');
     return member;
+  },
+  head() {
+    return {
+      title: this.title,
+    };
   },
 };
 </script>
