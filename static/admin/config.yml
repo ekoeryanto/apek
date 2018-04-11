@@ -89,12 +89,6 @@ collections:
         fields:
           - {name: title, label: Title, widget: string, required: true}
           - {name: body, label: Body, widget: markdown}
-      - name: products
-        label: Products
-        file: content/pages/products.json
-        fields:
-          - {name: title, label: Title, widget: string, required: true}
-          - {name: body, label: Body, widget: markdown}
       - name: contact
         label: Contact
         file: content/pages/contact.json
