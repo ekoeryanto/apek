@@ -33,6 +33,7 @@
         {{ item.text }}
       </v-btn>
     </template>
+    <slot name="after" />
   </v-toolbar-items>
 </template>
 <script>
