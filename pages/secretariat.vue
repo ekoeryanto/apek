@@ -13,9 +13,11 @@ export default {
   components: {
     ApekTitle,
   },
-  head: () => ({
-    title,
-  }),
+  head() {
+    return {
+      title: this.title,
+    };
+  },
   data: () => ({
     title,
   }),

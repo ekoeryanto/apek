@@ -16,9 +16,11 @@ export default {
   components: {
     ApekTitle,
   },
-  head: () => ({
-    title,
-  }),
+  head() {
+    return {
+      title: this.title,
+    };
+  },
   asyncData() {
     return import('~/content/pages/structure.json');
   },

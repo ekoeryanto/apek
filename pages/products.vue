@@ -9,15 +9,16 @@
 
 <script>
 import ApekTitle from '~/components/ApekTitle';
-const title = 'Products';
 
 export default {
   components: {
     ApekTitle,
   },
-  head: () => ({
-    title,
-  }),
+  head() {
+    return {
+      title: this.title,
+    };
+  },
   data: () => ({
     title,
   }),

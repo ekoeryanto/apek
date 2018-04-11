@@ -135,8 +135,6 @@
 </template>
 
 <script>
-const title = 'Contact';
-
 import ApekTitle from '~/components/ApekTitle';
 import { VForm, VTextField, VSnackbar } from 'vuetify';
 import SocialNetworks from '@/components/SocialNetworks';
@@ -152,18 +150,20 @@ export default {
     VTextField,
     VueRecaptcha,
   },
-  head: () => ({
-    title,
-    script: [
-      {
-        src:
-          'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit',
-        async: true,
-        defer: true,
-        body: true,
-      },
-    ],
-  }),
+  head() {
+    return {
+      title: this.title,
+      script: [
+        {
+          src:
+            'https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit',
+          async: true,
+          defer: true,
+          body: true,
+        },
+      ],
+    };
+  },
   data: () => ({
     snackbar: false,
     form: {
