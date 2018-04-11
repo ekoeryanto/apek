@@ -2,7 +2,7 @@
   <v-container>
     <h1>{{ title }}</h1>
     <img v-if="$data.thumbnail" :src="thumbnail" :alt="title">
-    <div v-html="$marked(body)" class="markdown-body"/>
+    <div v-if="$data.body" v-html="$marked($data.body)" class="markdown-body body-1 color-inherit" />
   </v-container>
 </template>
 

@@ -1,11 +1,9 @@
 <template>
-  <article>
+  <v-container>
     <h1>{{ title }}</h1>
     <h2>{{ address }}</h2>
-    <div
-      v-if="$data.body || null"
-      v-html="$marked(body)" />
-  </article>
+    <div v-if="$data.body" v-html="$marked($data.body)" class="markdown-body body-1 color-inherit" />
+  </v-container>
 </template>
 
 <script>

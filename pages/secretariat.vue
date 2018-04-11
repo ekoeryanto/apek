@@ -1,7 +1,7 @@
 <template>
   <div>
     <apek-title :title="title"/>
-    <v-container v-if="$data.body" v-html="$marked($data.body)" class="markdown-body" />
+    <v-container v-if="$data.body" v-html="$marked($data.body)" class="markdown-body body-1 color-inherit" />
   </div>
 </template>
 
