@@ -99,6 +99,7 @@ module.exports = {
   modules: [
     'nuxt-fontawesome',
     '@nuxtjs/pwa',
+    '@nuxtjs/google-analytics',
     '@nuxtjs/sitemap'
   ],
 
@@ -140,6 +141,9 @@ module.exports = {
     generate: true,
     hostname: publicURL,
     routes: dynamicRoutes
+  },
+  'google-analytics': {
+    id: 'UA-114389898-1'
   },
 
   /*
