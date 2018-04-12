@@ -1,0 +1,1 @@
+export const crawlers = require('crawler-user-agents').map(c => c.pattern)

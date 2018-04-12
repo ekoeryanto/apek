@@ -1,6 +1,6 @@
 <template>
   <div>
-    <apek-title :title="title" />
+    <apek-title :title="page.title" />
     <v-container
       grid-list-md
     >
@@ -88,8 +88,9 @@ export default {
     VDataIterator,
     VDivider,
   },
-  asyncData() {
-    return import(`~/content/pages/members.json`);
+  async asyncData() {
+    const page = await import(`~/content/pages/members.json`);
+    return { page };
   },
   data() {
     const context = require.context('~/content/members/', false, /\.json$/);
@@ -110,8 +111,19 @@ export default {
   },
   head() {
     return {
-      title: this.title,
+      title: this.page.title,
     };
+  },
+  mounted() {
+    import('crawler-user-agents/crawler-user-agents.json')
+      .then(crawlers => crawlers.map(c => c.pattern))
+      .then(bots => {
+        if (
+          bots.findIndex(el => RegExp(el).test(window.navigator.userAgent) > -1)
+        ) {
+          this.pagination.rowsPerPage = -1;
+        }
+      });
   },
 };
 </script>
