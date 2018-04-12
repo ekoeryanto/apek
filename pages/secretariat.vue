@@ -6,7 +6,6 @@
 </template>
 
 <script>
-const title = 'Secretariat';
 import ApekTitle from '~/components/ApekTitle';
 
 export default {
@@ -18,9 +17,7 @@ export default {
       title: this.title,
     };
   },
-  data: () => ({
-    title,
-  }),
+  data: () => ({}),
   asyncData() {
     return import('~/content/pages/secretariat.json');
   },
