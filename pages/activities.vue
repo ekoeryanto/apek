@@ -43,5 +43,10 @@ export default {
 
     return { posts };
   },
+  head() {
+    return {
+      title: 'Activities',
+    };
+  },
 };
 </script>
