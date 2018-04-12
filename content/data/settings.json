@@ -5,6 +5,18 @@
     {
       "icon-alt": "expand_less",
       "icon": "expand_more",
+      "model": false,
+      "text": "Info",
+      "show": true,
+      "children": [
+        { "text": "Announcements","to": "/announcements" },
+        { "text": "Activities", "to": "/activities" },
+        { "text": "Technologies", "to": "/technologies" }
+      ]
+    },
+    {
+      "icon-alt": "expand_less",
+      "icon": "expand_more",
       "show": true,
       "model": false,
       "text": "Profile",
@@ -13,18 +25,6 @@
         { "icon": "device_hub", "text": "Org. Structure", "to": "/structure" },
         { "icon": "extension", "text": "Business Field", "to": "/business" },
         { "icon": "visibility", "text": "Vision and Mission", "to": "/vision-mission" }
-      ]
-    },
-    {
-      "icon-alt": "expand_less",
-      "icon": "expand_more",
-      "model": false,
-      "text": "Info",
-      "show": true,
-      "children": [
-        { "text": "Announcements","to": "/announcements" },
-        { "text": "Activities", "to": "/activities" },
-        { "text": "Technologies", "to": "/technologies" }
       ]
     },
     { "icon": "message", "text": "Contact", "to": "/contact", "show": true }
