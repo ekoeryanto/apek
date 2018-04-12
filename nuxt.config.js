@@ -11,7 +11,7 @@ switch (process.env.CONTEXT) {
     publicURL = process.env.URL
     break;
   case 'branch-deploy':
-    publicURL = process.env.URL.replace('://', `://${process.env.BRANCH}`)
+    publicURL = process.env.URL.replace('://', `://${process.env.BRANCH}.`)
     break;
   case 'deploy-preview':
     publicURL = process.env.DEPLOY_PRIME_URL
