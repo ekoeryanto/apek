@@ -1,7 +1,6 @@
 {
   "menu": [
     { "icon": "home", "text": "Home", "to": "/", "exact": true, "show": true },
-    { "icon": "layers", "text": "Products", "to": "/products", "show": false },
     { "icon": "people", "text": "Members", "to": "/members", "show": true },
     {
       "icon-alt": "expand_less",

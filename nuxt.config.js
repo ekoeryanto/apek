@@ -4,11 +4,12 @@ const pkg = require('./package')
 const _ = require('lodash');
 
 const nodeExternals = require('webpack-node-externals')
-
+const publicURL = process.env.URL ? process.env.URL : 'http://localhost:3000'
 const dynamicRoutes = getDynamicPaths({
   '/announcement': 'blog/posts/announcements/*.json',
   '/activity': 'blog/posts/activities/*.json',
   '/technology': 'blog/posts/technologies/*.json',
+  '/member': 'members/*.json'
 });
 
 const brandIcons = _.uniq(
@@ -85,6 +86,7 @@ module.exports = {
   modules: [
     'nuxt-fontawesome',
     '@nuxtjs/pwa',
+    '@nuxtjs/sitemap'
   ],
 
   /*
@@ -119,14 +121,19 @@ module.exports = {
   meta: {
     name: pkg.name.toUpperCase(),
     nativeUI: true,
-    ogHost: process.env.URL ? process.env.URL.replace('https://', '') : 'localhost:3000'
+    ogHost: publicURL
+  },
+  sitemap: {
+    generate: true,
+    hostname: publicURL,
+    routes: dynamicRoutes
   },
 
   /*
   ** Build configuration
   */
   build: {
-    publicPath: '/rsc/',
+    publicPath: publicURL + '/rsc/',
     babel: {
       plugins: [
         [
