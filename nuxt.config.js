@@ -133,7 +133,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    publicPath: publicURL + '/rsc/',
+    publicPath: publicURL + '/',
     babel: {
       plugins: [
         [
