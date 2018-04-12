@@ -125,7 +125,6 @@ module.exports = {
   },
   sitemap: {
     generate: true,
-    hostname: publicURL,
     routes: dynamicRoutes
   },
 
