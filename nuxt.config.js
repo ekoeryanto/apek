@@ -4,7 +4,20 @@ const pkg = require('./package')
 const _ = require('lodash');
 
 const nodeExternals = require('webpack-node-externals')
-const publicURL = process.env.URL ? process.env.URL : 'http://localhost:3000'
+let publicURL = 'http://localhost:3000'
+
+switch (process.env.CONTEXT) {
+  case 'production':
+    publicURL = process.env.URL
+    break;
+  case 'branch-deploy':
+    publicURL = process.env.URL.replace('://', `://${process.env.BRANCH}`)
+    break;
+  case 'deploy-preview':
+    publicURL = process.env.DEPLOY_PRIME_URL
+    break;
+}
+
 const dynamicRoutes = getDynamicPaths({
   '/announcement': 'blog/posts/announcements/*.json',
   '/activity': 'blog/posts/activities/*.json',
@@ -125,6 +138,7 @@ module.exports = {
   },
   sitemap: {
     generate: true,
+    hostname: publicURL,
     routes: dynamicRoutes
   },
 
