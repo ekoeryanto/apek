@@ -74,6 +74,7 @@ module.exports = {
   ** Route config for pre-rendering
   */
   generate: {
+    fallback: true,
     routes: dynamicRoutes
   },
 
