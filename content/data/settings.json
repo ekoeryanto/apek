@@ -14,10 +14,11 @@
         { "text": "Technologies", "to": "/technologies" }
       ]
     },
+    { "icon": "info", "text": "About", "to": "/about", "show": true },    
     {
       "icon-alt": "expand_less",
       "icon": "expand_more",
-      "show": true,
+      "show": false,
       "model": false,
       "text": "Profile",
       "children": [
