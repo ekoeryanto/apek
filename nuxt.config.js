@@ -66,8 +66,7 @@ module.exports = {
   loading: { color: '#212121' },
   loadingIndicator: {
     name: 'circle',
-    color: '#3B8070',
-    background: 'red'
+    color: 'red',
   },
 
   /*
@@ -129,6 +128,10 @@ module.exports = {
       },
       {
         urlPattern: 'https://cdnjs.cloudflare.com/.*',
+        handler: 'cacheFirst'
+      },
+      {
+        urlPattern: 'https://unpkg.com/.*',
         handler: 'cacheFirst'
       }
     ]
