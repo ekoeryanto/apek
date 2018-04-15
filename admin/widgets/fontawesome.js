@@ -30,7 +30,6 @@ export const Control = createClass({
   handleChange(option) {
     this.setState({selected: option})
     this.props.onChange(Object.values(option))
-    console.log(this.props.value)
   },
   styleChange(e) {
     this.setState({ style: e.target.value });
