@@ -1,8 +1,7 @@
 import 'react-select/dist/react-select.css';
 import 'material-icons/iconfont/material-icons.css';
-
+import codepoints from 'material-icons/iconfont/codepoints.json';
 import Select from 'react-select';
-import MaterialIconList from 'material-design-icon-list/src/icons.json';
 
 export const Control = createClass({
   handleChange(option) {
@@ -14,7 +13,7 @@ export const Control = createClass({
       {
         labelKey: 'name',
         valueKey: 'name',
-        options: MaterialIconList,
+        options: Object.keys(codepoints).map(name => ({name})),
         optionRenderer: this.renderOption,
         onChange: this.handleChange,
         value: this.props.value,
