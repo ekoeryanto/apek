@@ -112,7 +112,7 @@ collections:
             fields:
               - {name: vendor, label: Vendor, widget: string}
               - {name: url, label: URL, widget: string}
-              - {name: icon, label: Icon, widget: icon}
+              - {name: icon, label: Icon, widget: fontawesome, default: 'brands'}
               - {name: color, label: Color, widget: string}
 
   - name: activity

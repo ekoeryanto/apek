@@ -17,3 +17,8 @@ sw.*
 
 # Nuxt sitemap
 sitemap.xml
+
+# NetlifyCMS with ParcelJS
+.cache
+static/admin/*
+!static/admin/config.yml

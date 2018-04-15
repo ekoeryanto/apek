@@ -28,7 +28,7 @@ const dynamicRoutes = getDynamicPaths({
 const brandIcons = _.uniq(
   require('./content/pages/contact.json')
   .social
-    .map(i => _.camelCase(`fa ${i.icon}`))
+    .map(i => _.camelCase(`fa ${i.icon[1]}`))
 )
 
 const solidIcons = require('./content/pages/home.json')

@@ -16,25 +16,25 @@
     {
       "vendor": "Facebook",
       "url": "https://fb.me/apekarawang",
-      "icon": "facebook",
+      "icon": ["fab", "facebook"],
       "color": "#3F51B5"
     },
     {
       "vendor": "Instagram",
       "url": "https://www.instagram.com/apekarawang",
-      "icon": "instagram",
+      "icon": ["fab", "instagram"],
       "color": "#6A1B9A"
     },
     {
       "vendor": "Twitter",
       "url": "https://twitter.com/apekarawang",
-      "icon": "twitter",
+      "icon": ["fab", "twitter"],
       "color": "#2196F3"
     },
     {
       "vendor": "Google Plus",
       "url": "https://goo.gl/tLi2s9",
-      "icon": "google-plus",
+      "icon": ["fab", "google-plus"],
       "color": "#F44336"
     }
   ]

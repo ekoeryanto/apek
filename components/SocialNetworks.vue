@@ -10,7 +10,7 @@
         class=""
         flat>
         <fa
-          :icon="['fab', network.icon]"
+          :icon="Object.values(network.icon)"
           :size="iconSize"
           :style="{color: network.color}"
         />
