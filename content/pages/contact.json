@@ -16,7 +16,10 @@
     {
       "vendor": "Facebook",
       "url": "https://fb.me/apekarawang",
-      "icon": ["fab", "facebook"],
+      "icon": [
+        "fab",
+        "facebook-square"
+      ],
       "color": "#3F51B5"
     },
     {

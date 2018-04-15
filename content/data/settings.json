@@ -1,33 +1,79 @@
 {
   "menu": [
-    { "icon": "home", "text": "Home", "to": "/", "exact": true, "show": true },
-    { "icon": "people", "text": "Members", "to": "/members", "show": true },
     {
-      "icon-alt": "expand_less",
-      "icon": "expand_more",
-      "model": false,
+      "text": "Home",
+      "show": true,
+      "to": "/",
+      "icon": "landscape",
+      "exact": true
+    },
+    {
+      "text": "Members",
+      "show": true,
+      "to": "/members",
+      "icon": "people"
+    },
+    {
       "text": "Info",
       "show": true,
-      "children": [
-        { "text": "Announcements","to": "/announcements" },
-        { "text": "Activities", "to": "/activities" },
-        { "text": "Technologies", "to": "/technologies" }
-      ]
-    },
-    { "icon": "info", "text": "About", "to": "/about", "show": true },    
-    {
-      "icon-alt": "expand_less",
       "icon": "expand_more",
-      "show": false,
+      "icon-alt": "expand_less",
       "model": false,
-      "text": "Profile",
       "children": [
-        { "icon": "info_outline", "text": "Secretariat", "to": "/secretariat" },
-        { "icon": "device_hub", "text": "Org. Structure", "to": "/structure" },
-        { "icon": "extension", "text": "Business Field", "to": "/business" },
-        { "icon": "visibility", "text": "Vision and Mission", "to": "/vision-mission" }
+        {
+          "text": "Announcements",
+          "to": "/announcements"
+        },
+        {
+          "text": "Activities",
+          "to": "/activities"
+        },
+        {
+          "text": "Technologies",
+          "to": "/technologies"
+        }
       ]
     },
-    { "icon": "message", "text": "Contact", "to": "/contact", "show": true }
+    {
+      "text": "About",
+      "show": true,
+      "to": "/about",
+      "icon": "info"
+    },
+    {
+      "text": "Profile",
+      "show": false,
+      "icon": "expand_more",
+      "icon-alt": "expand_less",
+      "model": false,
+      "children": [
+        {
+          "text": "Secretariat",
+          "to": "/secretariat",
+          "icon": "info_outline"
+        },
+        {
+          "text": "Org. Structure",
+          "to": "/structure",
+          "icon": "device_hub"
+        },
+        {
+          "text": "Business Field",
+          "to": "/business",
+          "icon": "extension"
+        },
+        {
+          "text": "Vision and Mission",
+          "to": "/vision-mission",
+          "icon": "visibility"
+        }
+      ]
+    },
+    {
+      "text": "Contact",
+      "show": true,
+      "to": "/contact",
+      "icon": "message"
+    }
   ]
 }
