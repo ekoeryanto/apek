@@ -2,11 +2,11 @@ import Select from 'react-select';
 import fontawesome from '@fortawesome/fontawesome';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
-const FASTYLES = this.props.field.get('type') || ['solid', 'brands', 'regular'];
+const FASTYLES = ['brands'];
 export const Control = createClass({
   getInitialState() {
     return {
-      style: this.props.field.get('default') || 'solid'
+      style: 'brands'
     };
   },
   getStyle: {
