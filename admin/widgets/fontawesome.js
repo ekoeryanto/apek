@@ -5,7 +5,9 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 const FASTYLES = ['brands'];
 export const Control = createClass({
   getInitialState() {
+    const selected = this.props.value ? this.props.value.toArray()[1] : 'google';
     return {
+      selected,
       style: 'brands'
     };
   },
@@ -63,7 +65,7 @@ export const Control = createClass({
         options: this.state.options,
         optionRenderer: this.renderOption,
         onChange: this.handleChange,
-        value: this.state.selected || this.props.value,
+        value: this.state.selected,
         valueRenderer: this.renderValue,
       }),
       h(
