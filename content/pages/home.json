@@ -12,31 +12,31 @@
   "business": [
     {
       "title": "Mesin Produksi",
-      "icon": "industry"
+      "icon": ["fas", "industry"]
     },
     {
       "title": "Spare-part Industri",
-      "icon": "cogs"
+      "icon": ["fas", "cogs"]
     },
     {
       "title": "Alat Kerja Pabrik",
-      "icon": "dolly-flatbed"
+      "icon": ["fas", "dolly-flatbed"]
     },
     {
       "title": "Sarana Pabrik",
-      "icon": "boxes"
+      "icon": ["fas", "boxes"]
     },
     {
       "title": "Construction & Civil",
-      "icon": "people-carry"
+      "icon": ["fas", "people-carry"]
     },
     {
       "title": "Mechanical Electrical",
-      "icon": "bolt"
+      "icon": ["fas", "bolt"]
     },
     {
       "title": "Technical Supplier",
-      "icon": "diagnoses"
+      "icon": ["fas", "diagnoses"]
     }
   ],
   "sponsor": [

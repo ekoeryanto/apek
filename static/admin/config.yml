@@ -55,7 +55,7 @@ collections:
             widget: list
             fields:
               - {label: Title, name: title, widget: string}
-              - {label: Icon, name: icon, widget: icon}
+              - {label: Icon, name: icon, widget: fontawesome}
 
           - name: sponsor
             label: Sponsors

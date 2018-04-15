@@ -33,7 +33,7 @@ const brandIcons = _.uniq(
 
 const solidIcons = require('./content/pages/home.json')
   .business
-  .map(i => _.camelCase(`fa ${i.icon}`))
+  .map(i => _.camelCase(`fa ${i.icon[1]}`))
   .concat(['faFax', 'faPhone', 'faBuilding', 'faEnvelope', 'faIndustry'])
 
 
