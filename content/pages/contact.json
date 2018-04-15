@@ -25,19 +25,28 @@
     {
       "vendor": "Instagram",
       "url": "https://www.instagram.com/apekarawang",
-      "icon": ["fab", "instagram"],
+      "icon": [
+        "fab",
+        "instagram"
+      ],
       "color": "#6A1B9A"
     },
     {
       "vendor": "Twitter",
       "url": "https://twitter.com/apekarawang",
-      "icon": ["fab", "twitter"],
+      "icon": [
+        "fab",
+        "twitter"
+      ],
       "color": "#2196F3"
     },
     {
       "vendor": "Google Plus",
       "url": "https://goo.gl/tLi2s9",
-      "icon": ["fab", "google-plus"],
+      "icon": [
+        "fab",
+        "google-plus-g"
+      ],
       "color": "#F44336"
     }
   ]
