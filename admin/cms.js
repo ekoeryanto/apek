@@ -1,12 +1,13 @@
-/* eslint-disable no-unused-vars */
-/* eslint-env browser */
+import CMS from 'netlify-cms';
+
+import 'netlify-cms/dist/cms.css';
+
 import { youtube } from './editors';
 import * as Material from './widgets/material-design-icon';
 import * as fa from './widgets/fontawesome';
 
-const cms = CMS || windwo.CMS;
-if (cms) {
-  cms.registerEditorComponent(youtube);
-  cms.registerWidget('icon', Material.Control);
-  cms.registerWidget('fontawesome', fa.Control);
-}
+window.CMS = CMS;
+
+CMS.registerEditorComponent(youtube);
+CMS.registerWidget('icon', Material.Control);
+CMS.registerWidget('fontawesome', fa.Control);
