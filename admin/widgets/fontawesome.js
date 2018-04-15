@@ -1,14 +1,21 @@
 import Select from 'react-select';
 import fontawesome from '@fortawesome/fontawesome';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { List } from 'immutable';
 
-const FASTYLES = ['brands'];
 export const Control = createClass({
   getInitialState() {
-    const selected = this.props.value ? this.props.value.toArray()[1] : 'google';
+    const { field, value } = this.props;
+    const selected = value ? value.get(1) : field.get('default', 'google');
+    const style = field.get('default-style', 'solid');
+    const styles = field.has('styles')
+      ? field.get('styles').toArray()
+      : ['solid', 'regular', 'brands'];
+
     return {
       selected,
-      style: 'brands'
+      style,
+      styles,
     };
   },
   getStyle: {
@@ -30,8 +37,8 @@ export const Control = createClass({
     this.setOptions(this.state.style);
   },
   handleChange(option) {
-    this.setState({selected: option})
-    this.props.onChange(Object.values(option))
+    this.setState({ selected: option });
+    this.props.onChange(Object.values(option));
   },
   styleChange(e) {
     this.setState({ style: e.target.value });
@@ -71,7 +78,7 @@ export const Control = createClass({
       h(
         'div',
         { className: 'hint' },
-        FASTYLES.map(t =>
+        this.state.styles.length > 1 && this.state.styles.map(t =>
           h(
             'label',
             null,
@@ -89,9 +96,11 @@ export const Control = createClass({
   },
 });
 
-
 export const Preview = createClass({
   render: function() {
-    return h(FontAwesomeIcon, { icon: Object.values(this.props.value), size: 'lg' });
+    return h(FontAwesomeIcon, {
+      icon: Object.values(this.props.value),
+      size: 'lg',
+    });
   },
 });
