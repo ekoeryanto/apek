@@ -89,7 +89,6 @@ module.exports = {
   */
   plugins: [
     '@/plugins/prototypes',
-    '@/plugins/persisted-state',
     '@/plugins/vuetify',
   ],
 
