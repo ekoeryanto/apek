@@ -151,6 +151,17 @@ module.exports = {
     id: 'UA-114389898-1',
   },
 
+  render: {
+    gzip: { threshold: 6 },
+    http2: { push: true },
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        if (type === 'font') return /.woff2/.test(file)
+        return ['script', 'style'].includes(type)
+      }
+    }
+  },
+
   /*
   ** Build configuration
   */
