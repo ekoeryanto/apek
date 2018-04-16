@@ -139,7 +139,7 @@ import ApekTitle from '~/components/ApekTitle';
 import { VForm, VTextField, VSnackbar } from 'vuetify';
 import SocialNetworks from '@/components/SocialNetworks';
 import VueRecaptcha from 'vue-recaptcha';
-import encode from '@/libs/encode';
+import encode from '@/lib/encode';
 
 export default {
   components: {
