@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const pkg = require('./package');
 const _ = require('lodash');
+const NetlifyServerPushPlugin = require('./lib/NetlifyServerPushPlugin');
 
 const nodeExternals = require('webpack-node-externals');
 let publicURL = 'http://localhost:3000';
@@ -172,6 +173,11 @@ module.exports = {
     extractCSS: true,
     cssSourceMap: false,
 
+    plugins: [
+      new NetlifyServerPushPlugin({
+        headersFile: '_headers'
+      })
+    ],
     /*
     ** You can extend webpack config here
     */
