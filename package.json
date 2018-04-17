@@ -9,10 +9,10 @@
   },
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
+    "build": "npm-run-all --parallel generate build:admin",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "postgenerate": "parcel build admin/index.html -d ./dist/admin/ --public-url /admin",
+    "build:admin": "parcel build admin/index.html -d ./dist/admin/ --public-url /admin",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "watch": "parcel watch admin/index.html -d static/admin/ --public-url /admin",
     "precommit": "lint-staged"
@@ -55,6 +55,7 @@
     "marked": "^0.3.19",
     "material-icons": "^0.2.1",
     "netlify-cms": "^1.5.0",
+    "npm-run-all": "^4.1.2",
     "nuxt": "^1.4.0",
     "nuxt-fontawesome": "^0.1.3",
     "parcel-bundler": "^1.7.0",
