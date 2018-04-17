@@ -3,19 +3,5 @@
   command = "npm run generate"
 [build.environment]
   NODE_VERSION = "8"
-  YARN_VERSION = "1.5.1"
+  YARN_VERSION = "1.6"
   YARN_FLAGS = "--no-ignore-optional"
-[[headers]]
-  for = "/*.js"
-[headers.values]
-  Cache-Control = "public, max-age=30672000"
-
-[[headers]]
-  for = "/rsc/*"
-[headers.values]
-  Cache-Control = "public, max-age=30672000"
-
-[[headers]]
-  for = "/images/*"
-[headers.values]
-  Cache-Control = "public, max-age=30672000"
