@@ -12,9 +12,8 @@
     "build": "npm-run-all --parallel generate build:admin",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "build:admin": "parcel build admin/index.html -d ./dist/admin/ --public-url /admin",
+    "build:admin": "node ./admin.js",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "watch": "parcel watch admin/index.html -d static/admin/ --public-url /admin",
     "precommit": "lint-staged"
   },
   "lint-staged": {
