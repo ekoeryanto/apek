@@ -1,17 +1,17 @@
 const { spawn } = require('child_process');
-const { join, resolve, basename } = require('path');
-const pify = require('pify');
+const fs = require('fs');
 const Bundler = require('parcel-bundler');
-const rimraf = pify(require('rimraf'));
-const copy = require('copy-concurrently');
+const path = require('path');
+const ghpages = require('gh-pages');
+const pkg = require('./package.json');
 
 // Entrypoint file location
-const file = join(__dirname, './admin/index.html');
-const CONFIG_FILE = resolve('./admin/config.yml');
+const file = path.join(__dirname, './admin/index.html');
+const ymlFile = path.join(__dirname, './static/config.yml');
 
 // Bundler options
 const options = {
-  outDir: resolve('./dist/admin'), // The out directory to put the build files in, defaults to dist
+  outDir: './dist/admin', // The out directory to put the build files in, defaults to dist
   // outFile: 'index.html', // The name of the outputFile
   publicUrl: '/', // The url to server on, defaults to dist
   watch: false, // whether to watch the files and rebuild them on change, defaults to process.env.NODE_ENV !== 'production'
@@ -25,7 +25,7 @@ const options = {
 };
 
 const git = spawn('git', ['show', '--pretty=format:', '--name-only']);
-git.stdout.on('data', async data => {
+git.stdout.on('data', data => {
   const exists =
     data
       .toString()
@@ -33,14 +33,26 @@ git.stdout.on('data', async data => {
       .filter(i => i.includes('admin')).length > 0;
 
   if (exists) {
-    // delete ouput directory
-    await rimraf(options.outDir);
+    const bundler = new Bundler(file, options);
+    bundler.bundle().then(bundle => {
+      copyFile(
+        ymlFile,
+        path.join(options.outDir, path.basename(ymlFile)),
+        () => {
+          fs.writeFileSync(path.join(options.outDir, 'netlify.toml'), `[build]\n\tpublish = "."\n\tcommand = "echo ***** Manager page created *****"`)
+          console.log(`${ymlFile} copied`);
+          console.log(`creating manager page`);
 
-    // bundle the admin
-    await new Bundler(file, options);
-
-    // copy config.yml to dist
-    await copy(CONFIG_FILE, join(options.outDir, basename(CONFIG_FILE)));
+          ghpages.publish(options.outDir, {
+            user: pkg.author,
+            branch: 'manager',
+            message: 'chore: manager page updated'
+          }, err => {
+            err ? console.error(err) : console.log(`admin page created`);
+          });
+        }
+      );
+    });
   } else {
     console.log('no change on admin/ skip building admin');
   }
@@ -51,5 +63,24 @@ git.stderr.on('data', data => {
 });
 
 git.on('close', code => {
-  code !== 0 && console.log(`git show closed with exit code: ${code}`);
+  code && console.log(`git show closed with exit code: ${code}`);
 });
+
+function copyFile(source, target, cb) {
+  let cbed = false;
+
+  const rd = fs.createReadStream(source);
+  rd.on('error', done);
+
+  const wr = fs.createWriteStream(target);
+  wr.on('error', done);
+  wr.on('close', () => done());
+  rd.pipe(wr);
+
+  function done(err) {
+    if (!cbed) {
+      cb(err);
+      cbed = true;
+    }
+  }
+}
