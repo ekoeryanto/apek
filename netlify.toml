@@ -3,5 +3,5 @@
   command = "yarn build"
 [build.environment]
   NODE_VERSION = "8"
-  YARN_VERSION = "1.6"
+  YARN_VERSION = "latest"
   YARN_FLAGS = "--no-ignore-optional"
