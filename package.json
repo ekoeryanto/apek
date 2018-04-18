@@ -2,7 +2,10 @@
   "name": "apek",
   "version": "1.0.0",
   "description": "Asosiasi Pengusaha Engineering Karawang",
-  "author": "Eko Eryanto",
+  "author": {
+    "email": "ekoeryanto@gmail.com",
+    "name": "Eko Eryanto"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ekoeryanto/apek.git"
@@ -15,7 +18,7 @@
     "build:admin": "node ./admin/build.js",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "lint-staged",
-    "prepush": "npm run build:admin"
+    "postpush": "npm run build:admin"
   },
   "lint-staged": {
     "*.{js,vue}": [
