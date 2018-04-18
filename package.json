@@ -42,7 +42,7 @@
     "@fortawesome/vue-fontawesome": "0.0.22",
     "@nuxtjs/google-analytics": "^2.0.2",
     "@nuxtjs/pwa": "^2.0.8",
-    "@nuxtjs/sitemap": "0.0.5",
+    "@nuxtjs/sitemap": "~0.1.0",
     "babel-eslint": "^8.2.1",
     "babel-plugin-transform-imports": "^1.5.0",
     "crawler-user-agents": "0.0.1",

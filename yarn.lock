@@ -149,16 +149,15 @@
     "@nuxtjs/meta" "^2.2.1"
     "@nuxtjs/workbox" "^2.2.0"
 
-"@nuxtjs/sitemap@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/sitemap/-/sitemap-0.0.5.tgz#6b193494ac059f584eedbff30f52eab59aaf6852"
+"@nuxtjs/sitemap@~0.1.0":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/sitemap/-/sitemap-0.1.1.tgz#25031515289e506aa8d3decc33e31569bb023a95"
   dependencies:
     async-cache "^1.1.0"
     fs-extra "^5.0.0"
     is-https "^1.0.0"
     lodash "^4.17.5"
     minimatch "^3.0.4"
-    pify "^3.0.0"
     sitemap "^1.13.0"
 
 "@nuxtjs/workbox@^2.2.0":
