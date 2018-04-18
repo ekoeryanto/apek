@@ -1,9 +1,9 @@
-const glob = require('glob');
-const fs = require('fs');
-const path = require('path');
-const pkg = require('./package');
-const _ = require('lodash');
-const NetlifyServerPushPlugin = require('./lib/NetlifyServerPushPlugin');
+import glob from 'glob';
+import fs from 'fs';
+import path from 'path';
+import pkg from './package.json';
+import _ from 'lodash';
+import NetlifyServerPushPlugin from './lib/NetlifyServerPushPlugin';
 
 const nodeExternals = require('webpack-node-externals');
 let publicURL = 'http://localhost:3000';
@@ -37,7 +37,7 @@ const solidIcons = require('./content/pages/home.json')
   .business.map(i => _.camelCase(`fa ${i.icon[1]}`))
   .concat(['faFax', 'faPhone', 'faBuilding', 'faEnvelope', 'faIndustry']);
 
-module.exports = {
+export default {
   mode: 'universal',
   dev: process.env.NODE_ENV !== 'production',
 
@@ -180,15 +180,15 @@ module.exports = {
         ],
       ],
     },
-    vendor: ['~/plugins/vuetify.js'],
     extractCSS: true,
     cssSourceMap: false,
 
     plugins: [
-      new NetlifyServerPushPlugin({
-        headersFile: '_headers'
-      })
+      // new NetlifyServerPushPlugin({
+      //   headersFile: '_headers'
+      // })
     ],
+
     /*
     ** You can extend webpack config here
     */

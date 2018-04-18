@@ -59,7 +59,7 @@
     "marked": "^0.3.19",
     "material-icons": "^0.2.1",
     "netlify-cms": "^1.5.0",
-    "nuxt": "^1.4.0",
+    "nuxt-edge": "^2.0.0-25401130.468881a",
     "nuxt-fontawesome": "^0.1.3",
     "parcel-bundler": "^1.7.0",
     "prettier": "^1.12.0",
