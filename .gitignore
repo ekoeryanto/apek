@@ -3,9 +3,22 @@ node_modules
 
 # logs
 npm-debug.log
+npm-error.log
+yarn-error.log
 
 # Nuxt build
 .nuxt
 
 # Nuxt generate
 dist
+
+# Nuxt PWA
+sw.*
+
+# Nuxt sitemap
+sitemap.xml
+
+# NetlifyCMS with ParcelJS
+.cache
+static/admin/*
+!static/admin/config.yml
