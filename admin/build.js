@@ -3,15 +3,15 @@ const fs = require('fs');
 const Bundler = require('parcel-bundler');
 const path = require('path');
 const ghpages = require('gh-pages');
-const pkg = require('./package.json');
+const pkg = require('../package.json');
 
 // Entrypoint file location
-const file = path.join(__dirname, './admin/index.html');
-const ymlFile = path.join(__dirname, './static/config.yml');
+const file = path.join(__dirname, './index.html');
+const ymlFile = path.join(__dirname, './config.yml');
 
 // Bundler options
 const options = {
-  outDir: './dist/admin', // The out directory to put the build files in, defaults to dist
+  outDir: path.join(__dirname, '../dist/admin'), // The out directory to put the build files in, defaults to dist
   // outFile: 'index.html', // The name of the outputFile
   publicUrl: '/', // The url to server on, defaults to dist
   watch: false, // whether to watch the files and rebuild them on change, defaults to process.env.NODE_ENV !== 'production'

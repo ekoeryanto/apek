@@ -12,10 +12,10 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "build:admin": "node ./admin.js",
+    "build:admin": "node ./admin/build.js",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "lint-staged",
-    "prepush": "node admin.js"
+    "prepush": "npm run build:admin"
   },
   "lint-staged": {
     "*.{js,vue}": [
