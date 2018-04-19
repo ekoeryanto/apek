@@ -6075,8 +6075,8 @@ neo-async@^2.5.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.5.1.tgz#acb909e327b1e87ec9ef15f41b8a269512ad41ee"
 
 netlify-cms@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/netlify-cms/-/netlify-cms-1.5.0.tgz#f3347fe52680dd7c1adf561298da30749f8125b2"
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/netlify-cms/-/netlify-cms-1.6.0.tgz#dcf4462a8fcacac156c11d6c6ec1f26504d68044"
   dependencies:
     classnames "^2.2.5"
     create-react-class "^15.6.0"
@@ -7760,6 +7760,10 @@ react-autowhatever@^10.1.0:
     prop-types "^15.5.8"
     react-themeable "^1.1.0"
     section-iterator "^2.0.0"
+
+react-circular-color@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-circular-color/-/react-circular-color-1.2.1.tgz#38ceefe86427e1b8393e8a32edcd432a763da450"
 
 react-datetime@^2.11.0:
   version "2.14.0"
