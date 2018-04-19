@@ -5,6 +5,8 @@ const path = require('path');
 const ghpages = require('gh-pages');
 const pkg = require('../package.json');
 
+const argued = check => process.argv.indexOf(check) > -1
+
 // Entrypoint file location
 const file = path.join(__dirname, './index.html');
 const ymlFile = path.join(__dirname, './config.yml');
@@ -26,13 +28,13 @@ const options = {
 
 const git = spawn('git', ['show', '--pretty=format:', '--name-only']);
 git.stdout.on('data', data => {
-  const exists =
+  const shoudBuild = !argued('-skip') || argued('-force') ||
     data
       .toString()
       .split(/\r?\n/)
       .filter(i => i.includes('admin')).length > 0;
 
-  if (exists) {
+  if (shoudBuild || argued('force')) {
     const bundler = new Bundler(file, options);
     bundler.bundle().then(bundle => {
       copyFile(
@@ -54,7 +56,7 @@ git.stdout.on('data', data => {
       );
     });
   } else {
-    console.log('no change on admin/ skip building admin');
+    console.log('skip building admin');
   }
 });
 
