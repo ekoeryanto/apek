@@ -114,7 +114,7 @@ collections:
               - {name: vendor, label: Vendor, widget: string}
               - {name: url, label: URL, widget: string}
               - {name: icon, label: Icon, widget: fontawesome, default-style: 'brands', styles: ['brands']}
-              - {name: color, label: Color, widget: string}
+              - {name: color, label: Color, widget: color}
 
   - name: activity
     label: Activities
