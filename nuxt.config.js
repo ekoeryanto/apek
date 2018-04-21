@@ -184,9 +184,9 @@ export default {
     cssSourceMap: false,
 
     plugins: [
-      // new NetlifyServerPushPlugin({
-      //   headersFile: '_headers'
-      // })
+      new NetlifyServerPushPlugin({
+        headersFile: '_headers'
+      })
     ],
 
     /*
