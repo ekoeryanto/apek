@@ -45,7 +45,7 @@ git.stdout.on('data', data => {
           console.log(`${ymlFile} copied`);
           console.log(`creating manager page`);
 
-          ghpages.publish(options.outDir, {
+          if(!argued('-nopublish')) ghpages.publish(options.outDir, {
             user: pkg.author,
             branch: 'manager',
             message: 'chore: manager page updated'
