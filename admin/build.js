@@ -4,6 +4,8 @@ const Bundler = require('parcel-bundler');
 const path = require('path');
 const ghpages = require('gh-pages');
 const pkg = require('../package.json');
+const cp = require('cp');
+const cheerio = require('cheerio');
 
 const argued = check => process.argv.indexOf(check) > -1
 
@@ -35,25 +37,33 @@ git.stdout.on('data', data => {
       .filter(i => i.includes('admin')).length > 0;
 
   if (shoudBuild || argued('force')) {
+    process.env.NODE_ENV = 'production'
     const bundler = new Bundler(file, options);
     bundler.bundle().then(bundle => {
-      copyFile(
-        ymlFile,
-        path.join(options.outDir, path.basename(ymlFile)),
-        () => {
-          fs.writeFileSync(path.join(options.outDir, 'netlify.toml'), `[build]\n\tpublish = "."\n\tcommand = "echo ***** Manager page created *****"`)
-          console.log(`${ymlFile} copied`);
-          console.log(`creating manager page`);
+      console.log('creating _headers from bundled html');
+      const html = fs.readFileSync(path.join(options.outDir, 'index.html')).toString();
+      const $ = cheerio.load(html);
+      let _headers = `/*\n`
+      $('link[rel=preload]')
+      .each((i, {attribs}) => {
+        _headers +=`\tLink: <${attribs.href}>; rel=${attribs.rel}; as=${attribs.as}\n`
+      })
+      fs.writeFileSync(path.join(options.outDir, '_headers'), _headers);
 
-          if(!argued('-nopublish')) ghpages.publish(options.outDir, {
-            user: pkg.author,
-            branch: 'manager',
-            message: 'chore: manager page updated'
-          }, err => {
-            err ? console.error(err) : console.log(`admin page created`);
-          });
-        }
-      );
+      console.log('copying config.yml')
+      cp.sync(ymlFile, path.join(options.outDir, path.basename(ymlFile)))
+
+      console.log('creating netlify.toml file')
+      fs.writeFileSync(path.join(options.outDir, 'netlify.toml'), `[build]\n\tpublish = "."\n\tcommand = "echo ***** Manager page created *****"`)
+
+      console.log(`creating manager page`);
+      if(!argued('-nopublish')) ghpages.publish(options.outDir, {
+        user: pkg.author,
+        branch: 'manager',
+        message: 'chore: manager page updated'
+      }, err => {
+        err ? console.error(err) : console.log(`admin page created`);
+      });
     });
   } else {
     console.log('skip building admin');
@@ -67,22 +77,3 @@ git.stderr.on('data', data => {
 git.on('close', code => {
   code && console.log(`git show closed with exit code: ${code}`);
 });
-
-function copyFile(source, target, cb) {
-  let cbed = false;
-
-  const rd = fs.createReadStream(source);
-  rd.on('error', done);
-
-  const wr = fs.createWriteStream(target);
-  wr.on('error', done);
-  wr.on('close', () => done());
-  rd.pipe(wr);
-
-  function done(err) {
-    if (!cbed) {
-      cb(err);
-      cbed = true;
-    }
-  }
-}
