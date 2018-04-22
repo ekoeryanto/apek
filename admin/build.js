@@ -30,13 +30,13 @@ const options = {
 
 const git = spawn('git', ['show', '--pretty=format:', '--name-only']);
 git.stdout.on('data', data => {
-  const shoudBuild = !argued('-skip') || argued('-force') ||
+  const shoudBuild = argued('-force') ||
     data
       .toString()
       .split(/\r?\n/)
       .filter(i => i.includes('admin')).length > 0;
 
-  if (shoudBuild || argued('force')) {
+  if (shoudBuild && !argued('-skip')) {
     process.env.NODE_ENV = 'production'
     const bundler = new Bundler(file, options);
     bundler.bundle().then(bundle => {
