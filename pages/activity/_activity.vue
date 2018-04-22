@@ -1,9 +1,9 @@
 <template>
-  <article>
+  <v-container class="markdown-body">
     <h1>{{ title }}</h1>
     <img v-if="$data.thumbnail" :src="thumbnail" :alt="title">
-    <div v-html="$marked(body)" class="markdown-body" />
-  </article>
+    <div v-if="$data.body" v-html="$marked($data.body)" class="body-1" />
+  </v-container>
 </template>
 
 <script>

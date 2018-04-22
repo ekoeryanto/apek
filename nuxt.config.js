@@ -54,15 +54,11 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel:"preconnect", href:"https://fonts.gstatic.com/", crossorigin: true },
       {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons',
-      },
-      {
-        rel: 'stylesheet',
-        href:
-          'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css',
       },
     ],
   },
@@ -181,7 +177,7 @@ module.exports = {
       ],
     },
     vendor: ['~/plugins/vuetify.js'],
-    extractCSS: true,
+    extractCSS: false,
     cssSourceMap: false,
 
     plugins: [
