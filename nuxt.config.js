@@ -141,6 +141,8 @@ module.exports = {
   sitemap: {
     generate: true,
     hostname: publicURL,
+    cacheTime: 1000 * 60 * 15,
+    gzip: true,
     routes: getDynamicPaths(routes, 'content', true),
   },
   'google-analytics': {
@@ -245,7 +247,7 @@ function getDynamicPaths(urlFilepathTable, cwd = 'content', sitemap = false) {
         const url = `${uri}/${path.basename(filepath, '.json')}`;
         if (sitemap) {
           return {
-            lastmodISO: fs.statSync(path.join(cwd, filepath)).mtime,
+            lastmodISO: new Date(fs.statSync(path.join(cwd, filepath)).mtime).toISOString(),
             changefreq: 'daily',
             url,
           };
