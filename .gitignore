@@ -17,6 +17,7 @@ sw.*
 
 # Nuxt sitemap
 sitemap.xml
+sitemap.xml.gz
 
 # NetlifyCMS with ParcelJS
 .cache

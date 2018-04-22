@@ -38,7 +38,6 @@ const solidIcons = require('./content/pages/home.json')
   .concat(['faFax', 'faPhone', 'faBuilding', 'faEnvelope', 'faIndustry']);
 
 module.exports = {
-  mode: process.env.NUXT_MODE || 'universal',
   dev: process.env.NODE_ENV !== 'production',
 
   /*
@@ -179,7 +178,7 @@ module.exports = {
       ],
     },
     vendor: ['~/plugins/vuetify.js'],
-    extractCSS: false,
+    extractCSS: true,
     cssSourceMap: false,
 
     plugins: [
