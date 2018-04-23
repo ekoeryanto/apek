@@ -52,7 +52,6 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel:"preconnect", href:"https://fonts.gstatic.com/", crossorigin: true },
       {
         rel: 'stylesheet',
@@ -115,7 +114,7 @@ module.exports = {
       },
     ],
   },
-  icon: { iconSrc: 'static/images/icon.png' },
+  icon: { iconSrc: 'static/logo/logo-box.png' },
   workbox: {
     runtimeCaching: [
       {
