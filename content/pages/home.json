@@ -1,42 +1,61 @@
 {
   "carousel": [
     {
+      "image": "/images/human-resource.jpg"
+    },
+    {
       "image": "/images/cover-andri@1080x.jpg"
     }
   ],
-  "jumbotron": {
-    "background": "/images/cover-andri@1080x.jpg",
-    "image": "",
-    "body": ""
-  },
   "business": [
     {
       "title": "Mesin Produksi",
-      "icon": ["fas", "industry"]
+      "icon": [
+        "fas",
+        "industry"
+      ]
     },
     {
       "title": "Spare-part Industri",
-      "icon": ["fas", "cogs"]
+      "icon": [
+        "fas",
+        "cogs"
+      ]
     },
     {
       "title": "Alat Kerja Pabrik",
-      "icon": ["fas", "dolly-flatbed"]
+      "icon": [
+        "fas",
+        "dolly-flatbed"
+      ]
     },
     {
       "title": "Sarana Pabrik",
-      "icon": ["fas", "boxes"]
+      "icon": [
+        "fas",
+        "boxes"
+      ]
     },
     {
       "title": "Construction & Civil",
-      "icon": ["fas", "people-carry"]
+      "icon": [
+        "fas",
+        "people-carry"
+      ]
     },
     {
       "title": "Mechanical Electrical",
-      "icon": ["fas", "bolt"]
+      "icon": [
+        "fas",
+        "bolt"
+      ]
     },
     {
       "title": "Technical Supplier",
-      "icon": ["fas", "diagnoses"]
+      "icon": [
+        "fas",
+        "diagnoses"
+      ]
     }
   ],
   "sponsor": [
