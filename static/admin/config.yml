@@ -22,8 +22,8 @@ collections:
               - {name: text, label: Title, widget: string, required: true}
               - {name: show, label: Show, widget: boolean, default: true}
               - {name: to, label: Path, widget: string, required: true}
-              - {name: icon, label: Icon, widget: icon}
-              - {name: icon-alt, label: Alternative Icon, widget: icon}
+              - {name: icon, label: Icon, widget: material-icons}
+              - {name: icon-alt, label: Alternative Icon, widget: material-icons}
               - {name: model, label: Expanded, widget: boolean}
               - {name: exact, label: Exact Path, widget: boolean}
               - name: children
@@ -32,7 +32,7 @@ collections:
                 fields:
                   - {name: text, label: Title, widget: string, required: true}
                   - {name: to, label: Path, widget: string, required: true}
-                  - {name: icon, label: Icon, widget: icon}
+                  - {name: icon, label: Icon, widget: material-icons}
                   - {name: exact, label: Exact Path, widget: boolean}
 
   - name: page
@@ -113,7 +113,7 @@ collections:
             fields:
               - {name: vendor, label: Vendor, widget: string}
               - {name: url, label: URL, widget: string}
-              - {name: icon, label: Icon, widget: fontawesome-brands, default-style: 'brands', styles: ['brands']}
+              - {name: icon, label: Icon, widget: fontawesome-brands}
               - {name: color, label: Color, widget: color}
 
   - name: activity
