@@ -56,7 +56,7 @@ collections:
             widget: list
             fields:
               - {label: Title, name: title, widget: string}
-              - {label: Icon, name: icon, widget: fontawesome}
+              - {label: Icon, name: icon, widget: fontawesome-solid}
 
           - name: sponsor
             label: Sponsors
@@ -113,7 +113,7 @@ collections:
             fields:
               - {name: vendor, label: Vendor, widget: string}
               - {name: url, label: URL, widget: string}
-              - {name: icon, label: Icon, widget: fontawesome, default-style: 'brands', styles: ['brands']}
+              - {name: icon, label: Icon, widget: fontawesome-brands, default-style: 'brands', styles: ['brands']}
               - {name: color, label: Color, widget: color}
 
   - name: activity
