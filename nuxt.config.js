@@ -96,7 +96,6 @@ module.exports = {
     '@nuxtjs/pwa',
     '@nuxtjs/google-analytics',
     '@nuxtjs/sitemap',
-    'nuxt-netlify-cms'
   ],
 
   /*
