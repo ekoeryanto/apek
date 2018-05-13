@@ -116,7 +116,7 @@ export default {
   },
   mounted() {
     import('crawler-user-agents/crawler-user-agents.json')
-      .then(crawlers => crawlers.map(c => c.pattern))
+      .then(crawlers => Object.values(crawlers).map(c => c.pattern))
       .then(bots => {
         if (
           bots.findIndex(el => RegExp(el).test(window.navigator.userAgent) > -1)

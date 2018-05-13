@@ -10,7 +10,7 @@
         class=""
         flat>
         <fa
-          :icon="Object.values(network.icon)"
+          :icon="network.icon.split(' ')"
           :size="iconSize"
           :style="{color: network.color}"
         />

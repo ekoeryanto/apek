@@ -14,7 +14,7 @@
       window.netlifyIdentity.on("init", user => {
         if (!user) {
           window.netlifyIdentity.on("login", () => {
-            document.location.href = "https://manager.apek.or.id/";
+            document.location.href = "/admin";
           });
         }
       });
