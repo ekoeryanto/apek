@@ -11,8 +11,8 @@ collections:
     editor:
       preview: false
     files:
-      - name: general
-        label: General Settings
+      - name: advanced
+        label: Advanced Settings
         file: content/data/settings.json
         fields:
           - name: menu
