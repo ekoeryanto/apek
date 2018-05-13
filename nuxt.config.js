@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const pkg = require('./package');
 const _ = require('lodash');
+const pascal = require('pascalcase')
 const NetlifyServerPushPlugin = require('./lib/NetlifyServerPushPlugin');
 
 const nodeExternals = require('webpack-node-externals');
@@ -29,12 +30,12 @@ const routes = {
 
 const brandIcons = _.uniq(
   require('./content/pages/contact.json').social.map(i =>
-    _.camelCase(`fa ${i.icon[1]}`)
+    `fa${pascal(i.icon.slice(4))}`
   )
 );
 
 const solidIcons = require('./content/pages/home.json')
-  .business.map(i => _.camelCase(`fa ${i.icon[1]}`))
+  .business.map(i => `fa${pascal(i.icon.slice(4))}`)
   .concat(['faFax', 'faPhone', 'faBuilding', 'faEnvelope', 'faIndustry']);
 
 module.exports = {
