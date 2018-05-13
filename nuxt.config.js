@@ -177,14 +177,13 @@ module.exports = {
         ],
       ],
     },
-    vendor: ['~/plugins/vuetify.js'],
     extractCSS: true,
     cssSourceMap: false,
 
     plugins: [
-      new NetlifyServerPushPlugin({
-        headersFile: '_headers'
-      })
+      // new NetlifyServerPushPlugin({
+      //   headersFile: '_headers'
+      // })
     ],
     /*
     ** You can extend webpack config here
@@ -195,24 +194,6 @@ module.exports = {
       config.resolve.alias['@fortawesome/fontawesome-free-solid$'] =
         '@fortawesome/fontawesome-free-solid/shakable.es.js';
       if (ctx.isDev) {
-        config.module.rules.push({
-          test: /\.(gif|jpe?g|png|svg|tiff|webp)$/,
-          use: [
-            {
-              loader: 'image-process-loader',
-              options: {
-                jpeg: {
-                  progressive: true,
-                  blur: true,
-                },
-                png: {
-                  progressive: true,
-                  blur: true,
-                },
-              },
-            },
-          ],
-        });
         // Run ESLint on save
         if (ctx.isClient) {
           config.module.rules.push({

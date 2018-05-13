@@ -11,9 +11,9 @@
     "url": "https://github.com/ekoeryanto/apek.git"
   },
   "scripts": {
-    "dev": "nuxt",
+    "start": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
+    "serve": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "lint-staged"
@@ -25,7 +25,6 @@
       "git add"
     ],
     "*.{png,jpeg,jpg,gif,svg}": [
-      "node ./thumbnail.js",
       "git add",
       "imagemin-lint-staged",
       "git add"
@@ -45,22 +44,19 @@
     "cp": "^0.2.0",
     "crawler-user-agents": "0.0.1",
     "cross-env": "^5.0.1",
+    "es6-promise": "^4.2.4",
     "eslint": "^4.15.0",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-vue": "^4.0.0",
     "github-markdown-css": "^2.10.0",
     "husky": "^0.14.3",
-    "image-process-loader": "^0.1.1",
-    "image-size": "^0.6.2",
     "imagemin-lint-staged": "^0.3.0",
     "lint-staged": "^7.0.4",
     "marked": "^0.3.19",
     "material-icons": "^0.2.1",
-    "nuxt": "^1.4.0",
+    "nuxt-edge": "^2.0.0-25435788.5803205",
     "nuxt-fontawesome": "^0.1.3",
-    "parcel-bundler": "^1.7.0",
     "prettier": "^1.12.0",
-    "sharp": "^0.20.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "vue-recaptcha": "^1.1.0",
