@@ -65,37 +65,13 @@ collections:
               - {label: Title, name: title, widget: string}
               - {label: Image, name: image, widget: image}
 
-      - name: Secretariat
-        label: Secretariat
-        file: content/pages/secretariat.json
-        fields:
-          - {name: title, label: Title, widget: string, required: true}
-          - {name: body, label: Body, widget: markdown}
       - name: about
         label: About
         file: content/pages/about.json
         fields:
           - {name: title, label: Title, widget: string, required: true}
           - {name: body, label: Body, widget: markdown}
-      - name: structure
-        label: Structure
-        file: content/pages/structure.json
-        fields:
-          - {name: title, label: Title, widget: string, required: true}
-          - {name: image, label: Image, widget: image}
-          - {name: body, label: Body, widget: markdown}
-      - name: business
-        label: Business
-        file: content/pages/business.json
-        fields:
-          - {name: title, label: Title, widget: string, required: true}
-          - {name: body, label: Body, widget: markdown}
-      - name: vision-mission
-        label: Vision - Mission
-        file: content/pages/vision-mission.json
-        fields:
-          - {name: title, label: Title, widget: string, required: true}
-          - {name: body, label: Body, widget: markdown}
+
       - name: contact
         label: Contact
         file: content/pages/contact.json
