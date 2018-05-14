@@ -6,3 +6,14 @@
 [build.environment]
   NODE_VERSION = "8"
   NPM_VERSION = "6.0.1"
+
+[[redirects]]
+from = "https://apek.netlify.com/*"
+to = "https://apek.or.id/:splat"
+status = 301
+force = true
+[[redirects]]
+from = "http://apek.netlify.com/*"
+to = "https://apek.or.id/:splat"
+status = 301
+force = true
