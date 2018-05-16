@@ -94,7 +94,7 @@ module.exports = {
   */
   modules: [
     'nuxt-fontawesome',
-    '@nuxtjs/pwa',
+    // '@nuxtjs/pwa',
     '@nuxtjs/google-analytics',
     '@nuxtjs/sitemap',
   ],
