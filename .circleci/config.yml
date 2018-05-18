@@ -3,9 +3,10 @@ jobs:
   build:
     docker:
       - image: circleci/node:8
-
-    working_directory: ~/repo
-
+    
+    working_directory: ~/apek
+    parallelism: 4
+    
     steps:
       - checkout
 
