@@ -52,7 +52,7 @@
     "husky": "^0.14.3",
     "imagemin-lint-staged": "^0.3.0",
     "lint-staged": "^7.0.4",
-    "marked": "^0.3.19",
+    "marked": "^0.4.0",
     "material-icons": "^0.2.1",
     "nuxt": "^1.4.0",
     "nuxt-fontawesome": "^0.1.3",
