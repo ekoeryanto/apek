@@ -110,11 +110,11 @@ module.exports = {
     component: "fa",
     imports: [
       {
-        set: "@fortawesome/fontawesome-free-brands",
+        set: "@fortawesome/free-brands-svg-icons",
         icons: _.uniq(brandIcons)
       },
       {
-        set: "@fortawesome/fontawesome-free-solid",
+        set: "@fortawesome/free-solid-svg-icons",
         icons: _.uniq(solidIcons)
       }
     ]
@@ -194,10 +194,6 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      config.resolve.alias["@fortawesome/fontawesome-free-brands$"] =
-        "@fortawesome/fontawesome-free-brands/shakable.es.js";
-      config.resolve.alias["@fortawesome/fontawesome-free-solid$"] =
-        "@fortawesome/fontawesome-free-solid/shakable.es.js";
       if (ctx.isDev) {
         // Run ESLint on save
         if (ctx.isClient) {
