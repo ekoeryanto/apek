@@ -5,6 +5,7 @@ const pkg = require("./package");
 const _ = require("lodash");
 const pascal = require("pascalcase");
 const NetlifyServerPushPlugin = require("./lib/NetlifyServerPushPlugin");
+const { VuetifyProgressiveModule } = require('vuetify-loader')
 
 const nodeExternals = require("webpack-node-externals");
 let publicURL = "http://localhost:3000";
@@ -194,7 +195,35 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      if (ctx.isDev) {
+        // Use vuetify loader
+        const vueLoader = config.module.rules.find((rule) => rule.loader === 'vue-loader')
+        const options = vueLoader.options || {}
+        const compilerOptions = options.compilerOptions || {}
+        const cm = compilerOptions.modules || []
+        cm.push(VuetifyProgressiveModule)
+
+        config.module.rules.push({
+          test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)(\?.*)?$/,
+          oneOf: [
+            {
+              test: /\.(png|jpe?g|gif)$/,
+              resourceQuery: /lazy\?vuetify-preload/,
+              use: [
+                'vuetify-loader/progressive-loader',
+                {
+                  loader: 'url-loader',
+                  options: { limit: 8000 }
+                }
+              ]
+            },
+            {
+              loader: 'url-loader',
+              options: { limit: 8000 }
+            }
+          ]
+        })
+
+        if (ctx.isDev) {
         // Run ESLint on save
         if (ctx.isClient) {
           config.module.rules.push({

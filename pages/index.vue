@@ -2,9 +2,12 @@
   <div>
     <v-container
       fluid
-      fill-height
       class="px-0 py-0"
     >
+      <v-img v-if="$data.cover"
+        :src="$data.cover"
+        aspect-ratio="1.7"
+      />
       <v-carousel v-if="$data.carousel" :hide-controls="carousel.length < 2" :hide-delimiters="carousel.length < 2">
         <v-carousel-item v-for="(item, i) in carousel" :src="item.image" :key="i"></v-carousel-item>
       </v-carousel>
@@ -49,14 +52,17 @@
               v-for="b in sponsor"
               :key="b.title"
               md3
+              xs12
               class="my-3"
             >
-              <img
+              <v-img
+                max-height="80px"
                 :src="b.image"
                 :alt="b.title"
                 :title="b.title"
-                height="80px"
-              >
+                aspect-ratio="1"
+                contain
+              />
             </v-flex>
           </v-layout>
         </template>
@@ -68,11 +74,13 @@
 <script>
 import VCarousel from 'vuetify/es5/components/VCarousel/VCarousel';
 import VCarouselItem from 'vuetify/es5/components/VCarousel/VCarouselItem';
-
+import VImg from 'vuetify/es5/components/VImg';
+import j from '@/static/images/asean.png';
 export default {
   components: {
     VCarousel,
     VCarouselItem,
+    VImg,
   },
   head() {
     return {
@@ -84,6 +92,7 @@ export default {
   },
   data() {
     return {
+      j,
       posts: [
         'Fabrication',
         'Machining',
@@ -105,8 +114,8 @@ export default {
   background-image: linear-gradient(-322deg, #000000 8%, #da2b2b 78%);
 }
 
-.jumbotron__image {
+/* .jumbotron__image {
   width: 100%;
   height: 100%;
-}
+} */
 </style>

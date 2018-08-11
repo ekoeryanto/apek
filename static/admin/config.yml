@@ -45,6 +45,10 @@ collections:
         label: Home
         file: content/pages/home.json
         fields:
+          - name: cover
+            label: Cover
+            widget: image
+
           - name: carousel
             label: Carousel
             widget: list
