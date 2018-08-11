@@ -1,17 +1,28 @@
 <template>
   <div>
     <v-container
+      v-if="$data.cover"
       fluid
       class="px-0 py-0"
     >
-      <v-img v-if="$data.cover"
+      <v-img
         :src="$data.cover"
         aspect-ratio="1.7"
       />
-      <v-carousel v-if="$data.carousel" :hide-controls="carousel.length < 2" :hide-delimiters="carousel.length < 2">
-        <v-carousel-item v-for="(item, i) in carousel" :src="item.image" :key="i"></v-carousel-item>
-      </v-carousel>
     </v-container>
+
+    <v-container
+      v-if="$data.carousel && $data.carousel.length > 0"
+      fluid
+      class="px-0 py-0"
+    >
+      <no-ssr>
+        <v-carousel lazy :hide-controls="carousel.length < 2" :hide-delimiters="carousel.length < 2">
+          <v-carousel-item v-for="(item, i) in carousel" :src="item.image" :key="i"></v-carousel-item>
+        </v-carousel>
+      </no-ssr>
+    </v-container>
+
     <div
       v-cloak
       v-if="$data.business"
@@ -105,6 +116,9 @@ export default {
         'et cetera.',
       ],
     };
+  },
+  mounted() {
+    console.log(this.$data.carousel);
   },
 };
 </script>
