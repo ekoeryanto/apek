@@ -1,10 +1,6 @@
 {
   "cover": "/images/cover-andri@1080x.jpg",
-  "carousel": [
-    {
-      "image": "/images/cover-andri@1080x.jpg"
-    }
-  ],
+  "carousel": [],
   "business": [
     {
       "title": "Mesin Produksi",
