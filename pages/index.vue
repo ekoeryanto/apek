@@ -117,9 +117,6 @@ export default {
       ],
     };
   },
-  mounted() {
-    console.log(this.$data.carousel);
-  },
 };
 </script>
 

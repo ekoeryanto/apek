@@ -64,7 +64,6 @@
                 sitekey="6LeN308UAAAAAPSx9gSXVD2HxgV4s3S0rqxhC8PG"
                 ref="invisibleRecaptcha"
                 @verify="onVerify"
-                @expired="onExpired"
                 size="invisible"
                 badge="inline"
               />
@@ -195,9 +194,6 @@ export default {
             'Unable to send message. Please use an alternative contact, thanks.'
           )
         );
-    },
-    onExpired: function() {
-      console.log('Expired');
     },
     resetRecaptcha() {
       this.$refs.recaptcha.reset(); // Direct call reset method
