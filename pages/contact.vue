@@ -32,6 +32,7 @@
               v-model="form.name"
               autofocus
               autocomplete="off"
+              clearable
               flex
               required
             />
@@ -42,17 +43,18 @@
               name="email"
               v-model="form.email"
               :rules="form.emailRules"
+              clearable
               required
             />
 
-            <v-text-field
+            <v-textarea
               label="Message"
               v-model="form.message"
               :rules="form.messageRules"
               name="message"
-              multi-line
               rows="3"
               counter="160"
+              clearable
               no-resize
               required
             />
@@ -66,14 +68,6 @@
                 size="invisible"
                 badge="inline"
               />
-              <v-btn
-                v-if="form.name || form.email || form.message"
-                flat
-                @click="clear"
-                type="button"
-              >
-                clear
-              </v-btn>
               <v-btn
                 color="secondary"
                 type="submit"
@@ -136,7 +130,7 @@
 
 <script>
 import ApekTitle from '~/components/ApekTitle';
-import { VForm, VTextField, VSnackbar } from 'vuetify';
+import { VForm, VTextField, VSnackbar, VTextarea } from 'vuetify';
 import SocialNetworks from '@/components/SocialNetworks';
 import VueRecaptcha from 'vue-recaptcha';
 import encode from '@/lib/encode';
@@ -148,6 +142,7 @@ export default {
     ApekTitle,
     VForm,
     VTextField,
+    VTextarea,
     VueRecaptcha,
   },
   head() {
@@ -211,11 +206,6 @@ export default {
       if (this.$refs.contact.validate()) {
         this.$refs.invisibleRecaptcha.execute();
       }
-    },
-    clear() {
-      this.snackbar = false;
-      this.$refs.contact.reset();
-      this.$refs.invisibleRecaptcha.reset();
     },
   },
 };
