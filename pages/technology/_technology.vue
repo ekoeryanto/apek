@@ -1,13 +1,18 @@
 <template>
   <v-container class="markdown-body">
     <h1>{{ title }}</h1>
-    <img v-if="$data.thumbnail" :src="thumbnail" :alt="title">
+    <v-img v-if="$data.thumbnail" :src="thumbnail" :alt="title" contain max-height="460px" />
     <div v-if="$data.body" v-html="$marked($data.body)" class="body-1" />
   </v-container>
 </template>
 
 <script>
+import { VImg } from 'vuetify';
+
 export default {
+  components: {
+    VImg,
+  },
   head() {
     return {
       title: this.title,
