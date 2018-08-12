@@ -40,8 +40,6 @@ const solidIcons = require("./content/pages/home.json")
   .concat(["faFax", "faPhone", "faBuilding", "faEnvelope", "faIndustry"]);
 
 module.exports = {
-  dev: process.env.NODE_ENV !== "production",
-
   /*
   ** Headers of the page
   */
@@ -105,9 +103,9 @@ module.exports = {
   modules: [
     "nuxt-fontawesome",
     // '@nuxtjs/pwa',
-    "@nuxtjs/google-analytics",
+    !publicURL.includes('localhost') && "@nuxtjs/google-analytics",
     "@nuxtjs/sitemap"
-  ],
+  ].filter(Boolean),
 
   /*
   ** modules configuration
