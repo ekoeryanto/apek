@@ -188,45 +188,39 @@ module.exports = {
     // vendor: ['@/plugins/vuetify'],
     // extractCSS: true,
     cssSourceMap: false,
-
-    plugins: [
-      // new NetlifyServerPushPlugin({
-      //   headersFile: '_headers'
-      // })
-    ],
     /*
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-        // Use vuetify loader
-        const vueLoader = config.module.rules.find((rule) => rule.loader === 'vue-loader')
-        const options = vueLoader.options || {}
-        const compilerOptions = options.compilerOptions || {}
-        const cm = compilerOptions.modules || []
-        cm.push(VuetifyProgressiveModule)
+      // Use vuetify loader
+      const vueLoader = config.module.rules.find((rule) => rule.loader === 'vue-loader')
+      const options = vueLoader.options || {}
+      const compilerOptions = options.compilerOptions || {}
+      const cm = compilerOptions.modules || []
+      cm.push(VuetifyProgressiveModule)
 
-        config.module.rules.push({
-          test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)(\?.*)?$/,
-          oneOf: [
-            {
-              test: /\.(png|jpe?g|gif)$/,
-              resourceQuery: /lazy\?vuetify-preload/,
-              use: [
-                'vuetify-loader/progressive-loader',
-                {
-                  loader: 'url-loader',
-                  options: { limit: 8000 }
-                }
-              ]
-            },
-            {
-              loader: 'url-loader',
-              options: { limit: 8000 }
-            }
-          ]
-        })
+      config.module.rules.push({
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)(\?.*)?$/,
+        oneOf: [
+          {
+            test: /\.(png|jpe?g|gif)$/,
+            resourceQuery: /lazy\?vuetify-preload/,
+            use: [
+              'vuetify-loader/progressive-loader',
+              {
+                loader: 'url-loader',
+                options: { limit: 8000 }
+              }
+            ]
+          },
+          {
+            loader: 'url-loader',
+            options: { limit: 8000 }
+          }
+        ]
+      })
 
-        if (ctx.isDev) {
+      if (ctx.isDev) {
         // Run ESLint on save
         if (ctx.isClient) {
           config.module.rules.push({
@@ -243,6 +237,10 @@ module.exports = {
             whitelist: [/^vuetify/]
           })
         ];
+      } else {
+        config.plugins.push(new NetlifyServerPushPlugin({
+          headersFile: '_headers'
+        }));
       }
     }
   }
