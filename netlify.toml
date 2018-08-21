@@ -5,7 +5,8 @@
   command = "npm run generate"
 [build.environment]
   NODE_VERSION = "8"
-  NPM_VERSION = "6.3.0"
+  NPM_VERSION = "6.4.0"
+  YARN_VERSION = "1.9.4"
 
 [[redirects]]
 from = "https://apek.netlify.com/*"
